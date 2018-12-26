@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="UXP_CBT" verbose="3" parallel="tests">
+    <parameter name="securityTest" value="false" />
+    <parameter name="deviceHost" value="Guivmtest099" />
+    <parameter name="devicePort" value="4444" />
+    <parameter name="browserName" value="chrome_windows" ></parameter>   
+            
+       <parameter name="browser" value="chrome"></parameter>
+        <parameter name="browser_version" value="52"></parameter>
+        <parameter name="os" value="Windows"></parameter>
+        <parameter name="os_version" value="7"></parameter>
+        <parameter name="env" value="SystemTest"></parameter>
+        <parameter name="webSite" value="http://aldvmstweb02.siriusfs.com/EngagementCentre/"></parameter>
+
+   <test name="UXP_EC_SMOKE" parallel="methods" thread-count="10">
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">	
+					
+			</class>
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="UXP_CBT" verbose="3" parallel="false">
+    <parameter name="securityTest" value="false" />
+    <parameter name="deviceHost" value="Guivmtest099" />
+    <parameter name="devicePort" value="4444" />
+    <parameter name="browserName" value="chrome_windows" ></parameter>   
+            
+       <parameter name="browser" value="chrome"></parameter>
+       <!--  <parameter name="browser_version" value="52"></parameter> -->
+        <parameter name="os" value="Windows"></parameter>
+        <parameter name="os_version" value="7"></parameter>
+        <parameter name="env" value="SystemTest"></parameter>
+        <parameter name="webSite" value="http://aldvmstweb02.siriusfs.com/EngagementCentre/"></parameter>
+ 
+  <!--  <test name="UXP_EC_1597" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1597" />
+		</classes>
+	</test>
+
+	<test name="UXP_EC_1598" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1598">
+			</class>
+		</classes>
+	</test>
+
+	 <test name="UXP_EC_1599" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1599">
+			</class>
+		</classes>
+	</test>
+
+	 <test name="UXP_EC_1600" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1600">
+			</class>
+		</classes>
+	</test> -->
+	
+  <test name="UXP_EC_1604">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1604">			
+			</class>
+		</classes>
+	</test>
+
+	<!-- <test name="UXP_EC_1605">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1605">
+			</class>
+		</classes>
+	</test> -->
+ 	<!-- <test name="UXP_EC_1606" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1606">
+			</class>
+		</classes>
+	</test>
+ 
+	<test name="UXP_EC_1607" parallel="false" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1607">
+			</class>
+		</classes>
+	</test>
+
+   <test name="UXP_EC_1608" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1608">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_1610" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1610">
+			</class>
+		</classes>
+	</test>
+
+	<test name="UXP_EC_1613" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1613">
+			</class>
+		</classes>
+	</test>
+	
+  <test name="UXP_EC_1614" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1614">
+			</class>
+		</classes>
+	</test>
+	
+	  <test name="UXP_EC_1699" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1699">
+			</class>
+		</classes>
+	</test>
+	
+ 	<test name="UXP_EC_1721">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1721">
+			</class>
+		</classes>
+	</test>
+
+	<test name="UXP_EC_1753" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1753">
+			</class>
+		</classes>
+	</test>
+
+	<test name="UXP_EC_1754" parallel="methods" thread-count="1">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_1754">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_2247" parallel="methods" thread-count="2">
+		<classes>
+			<class name="com.ssp.regression.insurer.testscripts.UXP_EC_2247">
+			</class>
+		</classes>
+	</test> -->
+</suite>

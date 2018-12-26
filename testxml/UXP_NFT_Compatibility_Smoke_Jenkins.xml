@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SIAAS_Smoke" verbose="3" parallel="false"
+	thread-count="120">
+	<parameter name="securityTest" value="false" />
+	<parameter name="deviceHost" value="venkateswararedd4" />
+	<parameter name="devicePort" value="4UkpEptbGWgwAzf4XioC" />
+	<parameter name="browserName" value="cloud"></parameter>
+	<parameter name="env" value="${site}"></parameter>
+	<parameter name="webSite" value="${url}"></parameter>
+	
+	<!--  <test name="UXP_EC_SMOKE_CC_59" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="59.0"></parameter>
+	<parameter name="os" value="Windows"></parameter>
+	<parameter name="os_version" value="7"></parameter>
+	<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_SMOKE_CC_58" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="58.0"></parameter>
+	<parameter name="os" value="Windows"></parameter>
+	<parameter name="os_version" value="7"></parameter>
+	<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			 
+			</class>
+		</classes>
+	</test>
+ -->
+	<!-- <test name="UXP_EC_SMOKE_CC_59" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="59.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="8"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_SMOKE_CC_58" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="58.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="8"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>  -->
+	
+	
+	<!-- <test name="UXP_EC_SMOKE_CC_59" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="59.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="8.1"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_SMOKE_CC_58" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="58.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="8.1"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	 -->
+	<!-- <test name="UXP_EC_SMOKE_CC_49" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="49.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="XP"></parameter>
+	<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_SMOKE_CC_48" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="48.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="XP"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	
+	 -->
+	
+	<!-- <test name="UXP_EC_SMOKE_CC_59" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="59.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="10"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_SMOKE_CC_58" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="58.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="10"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	 -->
+	
+	<!-- <test name="UXP_EC_SMOKE_chorme_59" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="59.0"></parameter>
+	<parameter name="os" value="OS X"></parameter>
+	<parameter name="os_version" value="Sierra"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>  
+	
+	
+	<test name="UXP_EC_SMOKE_chorme_58" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="58.0"></parameter>
+	<parameter name="os" value="OS X"></parameter>
+	<parameter name="os_version" value="Sierra"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>  
+	 -->
+	<!--  Firefox Requirements Start now  -->
+	
+	<test name="UXP_EC_SMOKE_FF_55" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="55.0 beta"></parameter>
+	<parameter name="os" value="Windows"></parameter>
+	<parameter name="os_version" value="7"></parameter>
+	<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			<methods><include name ="TC_002"/></methods>
+						</class>
+		</classes>
+	</test>
+	
+	<!--  <test name="UXP_EC_SMOKE_FF_55" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="55.0 beta"></parameter>
+	<parameter name="os" value="Windows"></parameter>
+	<parameter name="os_version" value="7"></parameter>
+	<parameter name="resolution" value="1366x768"></parameter>
+	<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+						</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_SMOKE_FF_54" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="54.0"></parameter>
+	<parameter name="os" value="Windows"></parameter>
+	<parameter name="os_version" value="7"></parameter>
+	<parameter name="resolution" value="1366x768"></parameter>
+	<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			 
+			</class>
+		</classes>
+	</test>
+	 -->
+	
+
+	<!-- <test name="UXP_EC_SMOKE_FF_55" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="55.0 beta"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="8"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_SMOKE_FF_54" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="54.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="8"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test> 
+	
+	 -->
+	
+	
+	<!-- <test name="UXP_EC_SMOKE_FF_55" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="55.0 beta"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="8.1"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_SMOKE_FF_54" parallel="methods" thread-count="25">
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="54.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="8.1"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	 -->
+	
+	
+	
+	<!-- <test name="UXP_EC_SMOKE_FF_47" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="47.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="XP"></parameter>
+	<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_SMOKE_FF_46" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="46.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="XP"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test> -->
+	
+
+	
+    <!--  <test name="UXP_EC_SMOKE_FF_55" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="55.0 beta"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="10"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="UXP_EC_SMOKE_FF_54" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="54.0"></parameter>
+	<parameter name="os" value="windows"></parameter>
+	<parameter name="os_version" value="10"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test> -->
+
+	
+    <!--  <test name="UXP_EC_SMOKE_FF_55" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="55.0 beta"></parameter>
+	<parameter name="os" value="OS X"></parameter>
+	<parameter name="os_version" value="Sierra"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>  
+	
+	
+	<test name="UXP_EC_SMOKE_FF_58" parallel="methods" thread-count="25">
+	<parameter name="browser" value="Firefox"></parameter>
+	<parameter name="browser_version" value="54.0"></parameter>
+	<parameter name="os" value="OS X"></parameter>
+	<parameter name="os_version" value="Sierra"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+			</class>
+		</classes>
+	</test>   -->
+	
+	
+	
+	
+	
+</suite>

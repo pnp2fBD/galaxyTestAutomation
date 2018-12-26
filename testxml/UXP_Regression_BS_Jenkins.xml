@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SIAAS_Regression" verbose="3" parallel="false"
+       thread-count="120">
+       <parameter name="securityTest" value="false" />
+       <parameter name="deviceHost" value="pavithra25" />
+       <parameter name="devicePort" value="JbTsAXGWzVsMbmHVvXYL" />
+       <parameter name="browserName" value="cloud"></parameter>
+
+       <parameter name="browser" value="chrome"></parameter>
+       <parameter name="browser_version" value="52"></parameter>
+       <parameter name="os" value="Windows"></parameter>
+       <parameter name="os_version" value="7"></parameter>
+       <parameter name="env" value="${site}"></parameter>
+       <parameter name="webSite" value="${url}"></parameter>
+
+
+       <test name="UXP_EC_Business_Scenarios" parallel="methods"
+              thread-count="5">
+              <groups>
+                     <run>
+                           <include name="Business_Scenario" />
+                     </run>
+              </groups>
+              <packages>
+                     <package name="com.ssp.regression.insurer.testscripts" />
+              </packages>
+       </test>
+</suite>

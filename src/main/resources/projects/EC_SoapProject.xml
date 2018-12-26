@@ -1,0 +1,3432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="EC_SoapProject" resourceRoot="" soapui-version="6.0.0" id="503c5c68-6d03-4bf6-a6cf-e5c1c7f3c693" abortOnError="false" runType="SEQUENTIAL" activeEnvironment="Default environment" xmlns:con="http://eviware.com/soapui/config"><con:settings env="${url}HG{site}/TechnologyFrameworksWeb"/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="RetrievePersonWSBinding" type="wsdl" bindingName="{urn:RetrievePersonWSService}RetrievePersonWSBinding" soapVersion="1_1" anonymous="optional" definition="${env}/RetrievePersonWS?WSDL" id="dff65d99-da1a-4fd7-98a2-f0edc845175e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="${url}HG{site}/TechnologyFrameworksWeb/RetrievePersonWS?WSDL"><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/RetrievePersonWS?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="urn:RetrievePersonWSService" xmlns:impl="urn:RetrievePersonWSService" xmlns:implin="http://www.ssp-uk.com/PersonMessages/v1" xmlns:implout="http://www.ssp-uk.com/PersonMessages/v1" xmlns:insurej="urn:InsureJ" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:RetrievePersonWSService">
+      <xsd:import namespace="http://www.ssp-uk.com/common/v1" schemaLocation="commonDataTypes.xsd"/>
+      <xsd:import namespace="http://www.ssp-uk.com/Person/v1" schemaLocation="Person.xsd"/>
+      <xsd:import namespace="http://www.ssp-uk.com/PersonMessages/v1" schemaLocation="PersonMessages.xsd"/>
+      <xsd:import namespace="urn:InsureJ" schemaLocation="insurej.xsd"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="soap-envelope.xsd"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="soap-encoding.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="OutputMessage">
+    <wsdl:part element="implout:retrievePersonResponse" name="OutputPart"/>
+  </wsdl:message>
+  <wsdl:message name="Message">
+    <wsdl:part element="implin:retrievePersonRequest" name="InputPart"/>
+    <wsdl:part element="insurej:InsureJHeader" name="InsureJHeaderPart"/>
+  </wsdl:message>
+  <wsdl:message name="FaultMessage">
+    <wsdl:part element="insurej:InsureJFault" name="InsureJFaultPart"/>
+  </wsdl:message>
+  <wsdl:portType name="doRetrievePersonWSService">
+    <wsdl:operation name="retrievePerson">
+      <wsdl:input message="impl:Message" name="retrievePersonInput"/>
+      <wsdl:output message="impl:OutputMessage" name="retrievePersonOutput"/>
+      <wsdl:fault message="impl:FaultMessage" name="retrievePersonFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RetrievePersonWSBinding" type="impl:doRetrievePersonWSService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="retrievePerson">
+      <soap:operation soapAction="RetrievePersonWSService/retrievePerson" style="document"/>
+      <wsdl:input name="retrievePersonInput">
+        <soap:header message="impl:Message" part="InsureJHeaderPart" use="literal"/>
+        <soap:body parts="InputPart" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrievePersonOutput">
+        <soap:body parts="OutputPart" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="retrievePersonFault">
+        <soap:fault name="retrievePersonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="doRetrievePersonWSService">
+    <wsdl:port binding="impl:RetrievePersonWSBinding" name="doRetrievePersonWSService">
+      <soap:address location="${url}HG{site}/TechnologyFrameworksWeb/RetrievePersonWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/commonDataTypes.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.ssp-uk.com/common/v1" xmlns="http://www.ssp-uk.com/common/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="objectIdentity">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:simpleType name="string0">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string1">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string2">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string3">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string4">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string8">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string10">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string11">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="11"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string20">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string25">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="25"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string34">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="34"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string35">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="35"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string40">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="40"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string50">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string60">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="60"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string70">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="70"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string100">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string128">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="128"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string250">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="250"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string254">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="254"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string400">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="400"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="yearType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(([0-1][0-9][0-9][0-9])|(20[0-3][0-9]))"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="yymmType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((0[1-9])|([1-9][0-9]))((0[1-9])|(1[0-2]))"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="mmyyType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((0[1-9])|(1[0-2]))((0[1-9])|([1-9][0-9]))"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dateType">
+    <xs:restriction base="xs:date"/>
+  </xs:simpleType>
+  <xs:simpleType name="dateTimeType">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="numberType">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:simpleType name="booleanType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="true"/>
+      <xs:enumeration value="false"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="monetaryAmountType">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="12"/>
+      <xs:fractionDigits value="2"/>
+      <xs:pattern value="\d{1,8}\.\d{0,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="real5_2">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="7"/>
+      <xs:fractionDigits value="2"/>
+      <xs:pattern value="\d{1,5}\.\d{1,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="real3_6">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="9"/>
+      <xs:fractionDigits value="6"/>
+      <xs:pattern value="\d{1,3}\.\d{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="sumInsuredType">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="12"/>
+      <xs:fractionDigits value="0"/>
+      <xs:pattern value="\d{1,10}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="emailAddressType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="254"/>
+      <xs:pattern value="([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" ref="premise"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="addressLine1"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="addressLine2"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="addressLine3"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="addressLine4"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="suburb"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="town"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="county"/>
+      <xs:element minOccurs="1" ref="postcode"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="country"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="format"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="premise" type="string60"/>
+  <xs:element name="addressLine1" type="string60"/>
+  <xs:element name="addressLine2" type="string60"/>
+  <xs:element name="addressLine3" type="string60"/>
+  <xs:element name="addressLine4" type="string60"/>
+  <xs:element name="suburb" type="string60"/>
+  <xs:element name="town" type="string60"/>
+  <xs:element name="county" type="string60"/>
+  <xs:element name="postcode" type="string8"/>
+  <xs:element name="country" type="string60"/>
+  <xs:element name="format" type="string8"/>
+  <xs:complexType name="Fault">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" ref="processingFault"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="processingFault">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" ref="message"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="messageId"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="messageLanguage"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="propertyName"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="detail"/>
+        <xs:element minOccurs="0" ref="messageProperties"/>
+        <xs:element minOccurs="0" ref="errorId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="message" type="string254"/>
+  <xs:element name="messageId" type="string254"/>
+  <xs:element name="messageLanguage" type="string254"/>
+  <xs:element name="propertyName" type="string254"/>
+  <xs:element name="detail" type="string254"/>
+  <xs:element name="errorId" type="string254"/>
+  <xs:simpleType name="long">
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:simpleType name="decimal">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:element name="messageProperties">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="messageProperty"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--Resources can be defined to have a code that is string or integer-->
+  <xs:simpleType name="resourceCode">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="resourceCodeInteger">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:element name="messageProperty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" ref="messagePropertyPlaceholder"/>
+        <xs:element maxOccurs="1" minOccurs="1" ref="messagePropertyValue"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="messagePropertyPlaceholder" type="xs:int"/>
+  <xs:element name="messagePropertyValue" type="string254"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/Person.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.ssp-uk.com/Person/v1" xmlns="http://www.ssp-uk.com/Person/v1" xmlns:att="http://www.ssp-uk.com/Attachment/v1" xmlns:cmn="http://www.ssp-uk.com/common/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.ssp-uk.com/common/v1" schemaLocation="commonDataTypes.xsd"/>
+  <xs:import namespace="http://www.ssp-uk.com/Attachment/v1" schemaLocation="Attachment.xsd"/>
+  <xs:element name="person" type="Person"/>
+  <xs:element name="personURN" type="cmn:numberType"/>
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="personKey"/>
+      <xs:element minOccurs="0" ref="extCustomerRef"/>
+      <xs:element minOccurs="0" ref="effectiveDate"/>
+      <xs:element minOccurs="0" ref="reasonForChange"/>
+      <xs:element minOccurs="0" ref="fullName"/>
+      <xs:element minOccurs="1" ref="forename"/>
+      <xs:element minOccurs="0" ref="middleName1"/>
+      <xs:element minOccurs="0" ref="middleName2"/>
+      <xs:element minOccurs="0" ref="middleName3"/>
+      <xs:element minOccurs="1" ref="surname"/>
+      <xs:element minOccurs="1" ref="format"/>
+      <xs:element minOccurs="0" ref="title"/>
+      <xs:element minOccurs="0" ref="suffixes"/>
+      <xs:element minOccurs="0" ref="gender"/>
+      <xs:element minOccurs="0" ref="dateOfBirth"/>
+      <xs:element minOccurs="0" ref="dateOfDeath"/>
+      <xs:element minOccurs="0" ref="deceased"/>
+      <xs:element minOccurs="0" ref="uniqueReference"/>
+      <xs:element minOccurs="0" ref="maritalStatus"/>
+      <xs:element minOccurs="0" ref="customerValue"/>
+      <xs:element minOccurs="0" ref="idNumber"/>
+      <xs:element minOccurs="0" ref="correspondencePreference"/>
+      <xs:element minOccurs="0" ref="specialCorrespondence"/>
+      <xs:element minOccurs="0" ref="businessUnitURN"/>
+      <xs:element minOccurs="0" ref="addresses"/>
+      <xs:element minOccurs="0" ref="accountDetails"/>
+      <xs:element minOccurs="0" ref="contactDetails"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PersonSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="personKey"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="personKey" type="PersonKey"/>
+  <xs:element name="fullName" type="cmn:string254"/>
+  <xs:element name="forename" type="cmn:string100"/>
+  <xs:element name="middleName1" type="cmn:string100"/>
+  <xs:element name="middleName2" type="cmn:string100"/>
+  <xs:element name="middleName3" type="cmn:string100"/>
+  <xs:element name="surname" type="cmn:string100"/>
+  <xs:element name="format" type="cmn:string100"/>
+  <xs:element name="extCustomerRef" type="cmn:string"/>
+  <xs:element name="idNumber" type="cmn:string"/>
+  <xs:element name="customerValue" type="cmn:string"/>
+  <xs:element name="effectiveDate" type="cmn:dateTimeType"/>
+  <xs:element name="reasonForChange" type="cmn:string">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Contacts.EditContactReason.</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="title" type="cmn:resourceCode">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>PersonName.titles</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="suffixes" type="cmn:string40">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>PersonName.suffixes</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="gender" type="cmn:string2">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Person.gender</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="dateOfBirth" type="cmn:dateType"/>
+  <xs:element name="dateOfDeath" type="cmn:dateType"/>
+  <xs:element name="deceased" type="cmn:booleanType"/>
+  <xs:element name="maritalStatus" type="cmn:resourceCode">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Person.maritalStatus</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="correspondencePreference" type="cmn:resourceCode">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Person.correspondencePreference</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="specialCorrespondence" type="cmn:resourceCode">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Person.specialCorrespondence</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="addresses" type="Addresses"/>
+  <xs:element name="accountDetails" type="AccountDetails"/>
+  <xs:element name="contactDetails" type="ContactDetails"/>
+  <xs:element name="uniqueReference" type="cmn:numberType"/>
+  <xs:element name="businessUnitURN" type="cmn:numberType"/>
+  <xs:complexType name="PersonKey">
+    <xs:sequence>
+      <xs:element minOccurs="1" ref="personIdentity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="personIdentity" type="cmn:objectIdentity"/>
+  <xs:complexType name="ContactDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="preferredStartTime"/>
+      <xs:element minOccurs="0" ref="preferredEndTime"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="emails"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="telephones"/>
+      <xs:element minOccurs="0" ref="optInToMarketing"/>
+      <xs:element minOccurs="0" ref="marketingDateAsked"/>
+      <xs:element minOccurs="0" ref="marketingSMS"/>
+      <xs:element minOccurs="0" ref="marketingTelephone"/>
+      <xs:element minOccurs="0" ref="marketingPost"/>
+      <xs:element minOccurs="0" ref="marketingEmail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="preferredStartTime" type="cmn:string8"/>
+  <xs:element name="preferredEndTime" type="cmn:string8"/>
+  <xs:element name="emails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="1" ref="email"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="email">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="0" ref="emailIdentity"/>
+        <xs:element maxOccurs="1" minOccurs="1" ref="emailType"/>
+        <xs:element maxOccurs="1" minOccurs="1" ref="emailAddress"/>
+      </xs:sequence>
+      <xs:attribute ref="delete"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="emailIdentity" type="cmn:objectIdentity"/>
+  <xs:element name="emailAddress" type="cmn:emailAddressType"/>
+  <xs:element name="emailType" type="cmn:string2">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>EmailAddress.format</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="telephones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="1" ref="telephone"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="telephone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="0" ref="telephoneIdentity"/>
+        <xs:element maxOccurs="1" minOccurs="1" ref="telephoneType"/>
+        <xs:element maxOccurs="1" minOccurs="1" ref="telephoneNumber"/>
+      </xs:sequence>
+      <xs:attribute ref="delete"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="telephoneIdentity" type="cmn:objectIdentity"/>
+  <xs:element name="telephoneNumber" type="cmn:string40"/>
+  <xs:element name="telephoneType" type="cmn:string2">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>PhoneNumber.format</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Addresses">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" ref="address"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Address">
+    <xs:complexContent>
+      <xs:extension base="cmn:AddressType">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" ref="addressType"/>
+          <xs:element maxOccurs="1" minOccurs="1" ref="isMailingAddress"/>
+          <xs:element minOccurs="0" ref="addressIdentity"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="optInToMarketing" type="cmn:string50"/>
+  <xs:element name="marketingDateAsked" type="cmn:dateType"/>
+  <xs:element name="marketingSMS" type="cmn:booleanType"/>
+  <xs:element name="marketingTelephone" type="cmn:booleanType"/>
+  <xs:element name="marketingPost" type="cmn:booleanType"/>
+  <xs:element name="marketingEmail" type="cmn:booleanType"/>
+  <xs:element name="address" type="Address"/>
+  <xs:element name="addressIdentity" type="cmn:objectIdentity"/>
+  <xs:element name="addressType" type="cmn:string2">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>ContactAddress.type</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="isMailingAddress" type="cmn:booleanType"/>
+  <xs:complexType name="AccountDetails">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" ref="bankAccounts"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="cardAccounts"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="bankAccounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="1" ref="bankAccount"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bankAccount" type="BankAccount"/>
+  <xs:complexType name="BaseBankAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="bankAccountIdentity"/>
+      <xs:element minOccurs="1" ref="bankAccountName"/>
+      <xs:element minOccurs="1" ref="bankAccountType"/>
+      <xs:element minOccurs="1" ref="bankAccountReference"/>
+      <xs:element minOccurs="1" ref="bankAccountCountry"/>
+      <xs:element minOccurs="1" ref="bankAccountBSBCode"/>
+      <xs:element minOccurs="1" ref="bankAccountBSBBank"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BankAccount">
+    <xs:complexContent>
+      <xs:extension base="BaseBankAccount">
+        <xs:attribute ref="delete"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="bankAccountIdentity" type="cmn:objectIdentity"/>
+  <xs:element name="bankAccountName" type="cmn:string40"/>
+  <xs:element name="bankAccountType" type="cmn:string40">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>BankAccount.accountType</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bankAccountCountry" type="cmn:string40">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>BankAccount.country</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bankAccountReference" type="cmn:string20"/>
+  <xs:element name="bankAccountBSBCode" type="cmn:string40"/>
+  <xs:element name="bankAccountBSBBank" type="cmn:string40">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>BankAccount.bank</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="cardAccounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="1" ref="cardAccount"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cardAccount" type="CardAccount"/>
+  <xs:complexType name="BaseCardAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="cardAccountIdentity"/>
+      <xs:element minOccurs="1" ref="cardAccountName"/>
+      <xs:element minOccurs="1" ref="cardAccountType"/>
+      <xs:element minOccurs="1" ref="cardAccountCountry"/>
+      <xs:element minOccurs="0" ref="cardAccountStartDate"/>
+      <xs:element minOccurs="0" ref="cardAccountIssueNumber"/>
+      <xs:element minOccurs="1" ref="cardAccountExpiryDate"/>
+      <xs:element minOccurs="1" ref="cardAccountReference"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CardAccount">
+    <xs:complexContent>
+      <xs:extension base="BaseCardAccount">
+        <xs:attribute ref="delete"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="cardAccountIdentity" type="cmn:objectIdentity"/>
+  <xs:element name="cardAccountName" type="cmn:string40"/>
+  <xs:element name="cardAccountType" type="cmn:string40">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>BankAccount.cardType</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="cardAccountCountry" type="cmn:string40"/>
+  <xs:annotation>
+    <xs:documentation>
+      <xs:resourceName>BankAccount.country</xs:resourceName>
+    </xs:documentation>
+  </xs:annotation>
+  <xs:element name="cardAccountStartDate" type="cmn:mmyyType"/>
+  <xs:element name="cardAccountIssueNumber" type="cmn:string3"/>
+  <xs:element name="cardAccountExpiryDate" type="cmn:mmyyType"/>
+  <xs:element name="cardAccountReference" type="cmn:string20"/>
+  <xs:attribute name="delete" type="cmn:booleanType"/>
+  <xs:element name="attachments" type="Attachments"/>
+  <xs:complexType name="Attachments">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="attachment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="attachment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:creationDate"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:objectIdentity"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:attachmentUserId"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:category"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:comment"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:documentType"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:documentName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/Attachment.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.ssp-uk.com/Attachment/v1" xmlns="http://www.ssp-uk.com/Attachment/v1" xmlns:cmn="http://www.ssp-uk.com/common/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.ssp-uk.com/common/v1" schemaLocation="commonDataTypes.xsd"/>
+  <xs:element name="attachment" type="Attachment"/>
+  <xs:complexType name="Attachment">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" ref="objectIdentity"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="attachmentUserId"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="comment"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="category"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="documentType"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="url"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="documentName"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="type"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="uniqueReference"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="data"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="creationDate"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="documentXml"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="objectIdentity" nillable="false" type="cmn:objectIdentity"/>
+  <xs:element name="attachmentUserId" type="cmn:string50"/>
+  <xs:element name="category" type="cmn:string254">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Attachment.category</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="comment" type="cmn:string254"/>
+  <xs:element name="documentType" type="cmn:string2">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Attachments.FileDocumentType</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="url" type="cmn:string254"/>
+  <xs:element name="documentName" type="cmn:string254"/>
+  <xs:element name="type" nillable="true" type="cmn:string50"/>
+  <xs:element name="uniqueReference" type="cmn:string20"/>
+  <xs:element name="data" type="cmn:string"/>
+  <xs:element name="documentXml" type="cmn:string"/>
+  <xs:element name="creationDate" type="cmn:dateTimeType"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/PersonMessages.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://www.ssp-uk.com/PersonMessages/v1" xmlns="http://www.ssp-uk.com/PersonMessages/v1" xmlns:cmn="http://www.ssp-uk.com/common/v1" xmlns:per="http://www.ssp-uk.com/Person/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.ssp-uk.com/Person/v1" schemaLocation="Person.xsd"/>
+  <xs:import namespace="http://www.ssp-uk.com/common/v1" schemaLocation="commonDataTypes.xsd"/>
+  <!--Retrieve Person-->
+  <xs:element name="retrievePersonRequest" type="RetrievePersonRequest"/>
+  <xs:element name="retrievePersonResponse" type="RetrievePersonResponse"/>
+  <xs:complexType name="RetrievePersonRequest">
+    <xs:sequence>
+      <xs:element ref="per:personKey"/>
+      <xs:element ref="per:effectiveDate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetrievePersonResponse">
+    <xs:sequence>
+      <xs:element ref="per:person"/>
+      <xs:element ref="per:attachments"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--End Retrieve Person-->
+  <!--Save Person-->
+  <xs:element name="managePersonRequest" type="ManagePersonRequest"/>
+  <xs:element name="managePersonResponse" type="ManagePersonResponse"/>
+  <xs:complexType name="ManagePersonRequest">
+    <xs:sequence>
+      <xs:element ref="per:person"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ManagePersonResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" ref="per:personKey"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="per:addresses"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="per:accountDetails"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="per:contactDetails"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--End Save Person-->
+  <!--Search Person-->
+  <xs:element name="searchPersonRequest" type="SearchPersonRequest"/>
+  <xs:element name="searchPersonResponse" type="SearchPersonResponse"/>
+  <xs:complexType name="SearchPersonRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="per:personURN"/>
+      <xs:element minOccurs="0" name="name" type="cmn:string254"/>
+      <xs:element minOccurs="0" ref="per:dateOfBirth"/>
+      <xs:element minOccurs="0" name="streetName" type="cmn:string60"/>
+      <xs:element minOccurs="0" name="city" type="cmn:string60"/>
+      <xs:element minOccurs="0" name="postCode" type="cmn:string60"/>
+      <xs:element minOccurs="0" ref="per:extCustomerRef"/>
+      <xs:element minOccurs="0" name="roleCategory" type="cmn:string60">
+        <xs:annotation>
+          <xs:documentation>
+            <xs:resourceName>ContactRole.roleCategory</xs:resourceName>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="roleType" type="cmn:string40">
+        <xs:annotation>
+          <xs:documentation>
+            <xs:resourceName>ContactRole.roleType</xs:resourceName>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="startIndex" type="cmn:numberType"/>
+      <xs:element minOccurs="1" name="noOfInstances" type="cmn:numberType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchPersonResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="contacts" type="Contacts"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="hasMoreResults" type="cmn:booleanType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Contacts">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="person" type="PersonInformation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType abstract="false" name="PersonInformation">
+    <xs:sequence>
+      <xs:element ref="per:personKey"/>
+      <xs:element ref="per:personURN"/>
+      <xs:element minOccurs="0" name="title" type="cmn:string8"/>
+      <xs:element minOccurs="0" name="forename" type="cmn:string254"/>
+      <xs:element minOccurs="0" name="surname" type="cmn:string254"/>
+      <xs:element minOccurs="0" name="name" type="cmn:string254"/>
+      <xs:element minOccurs="0" name="dateOfBirth" type="cmn:dateType"/>
+      <xs:element minOccurs="0" name="idNumber" type="cmn:string20"/>
+      <xs:element minOccurs="0" name="address" type="cmn:string254"/>
+      <xs:element minOccurs="0" name="postCode" type="cmn:string8"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="person" type="PersonInformation"/>
+  <!--End Search Person-->
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/insurej.xsd</con:url><con:content><![CDATA[<schema elementFormDefault="qualified" targetNamespace="urn:InsureJ" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:insurej="urn:InsureJ">
+  <annotation>
+    <documentation>Standard Header Types</documentation>
+  </annotation>
+  <element name="InsureJHeader" type="insurej:InsureJHeaderType"/>
+  <complexType name="InsureJHeaderType">
+    <sequence>
+      <element name="correlationId" type="string"/>
+      <element minOccurs="0" name="externalUserId" type="decimal"/>
+      <element minOccurs="0" name="role" type="string"/>
+      <element minOccurs="0" name="sessionId" type="string"/>
+      <element minOccurs="0" name="language" type="string"/>
+    </sequence>
+  </complexType>
+  <element name="InsureJFault" type="insurej:InsureJFault"/>
+  <complexType name="InsureJFault">
+    <choice maxOccurs="unbounded">
+      <element name="InsureJProcessingFault" type="insurej:InsureJProcessingFault"/>
+    </choice>
+  </complexType>
+  <element name="InsureJProcessingFault" type="insurej:InsureJProcessingFault"/>
+  <complexType name="InsureJProcessingFault">
+    <sequence>
+      <element name="message" type="string"/>
+      <sequence maxOccurs="1" minOccurs="0">
+        <element name="messageId" type="string"/>
+        <element name="messageLanguage" type="string"/>
+        <element minOccurs="0" name="propertyName" type="string"/>
+        <element minOccurs="0" name="detail" type="string"/>
+        <element minOccurs="0" name="messageProperties" type="insurej:MessageProperties"/>
+        <element minOccurs="0" name="errorId" type="string"/>
+      </sequence>
+    </sequence>
+  </complexType>
+  <complexType name="MessageProperties">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="1" name="messageProperty" type="insurej:MessageProperty"/>
+    </sequence>
+  </complexType>
+  <complexType name="MessageProperty">
+    <sequence>
+      <element name="placeholder" type="int"/>
+      <element name="value" type="string"/>
+    </sequence>
+  </complexType>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/soap-envelope.xsd</con:url><con:content><![CDATA[<!--Schema for the SOAP/1.1 envelope Portions  2001 DevelopMentor. 2001 W3C (Massachusetts Institute of Technology, Institut National de Recherche en Informatique et en Automatique, Keio University). All Rights Reserved. This document is governed by the W3C Software License [1] as described in the FAQ [2].[1] http://www.w3.org/Consortium/Legal/copyright-software-19980720[2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD By obtaining, using and/or copying this work, you (the licensee) agree that you have read, understood, and will comply with the following terms and conditions: Permission to use, copy, modify, and distribute this software and its documentation, with or without modification,  for any purpose and without fee or royalty is hereby granted, provided that you include the following on ALL copies of the software and documentation or portions thereof, including modifications, that you make: 1.  The full text of this NOTICE in a location viewable to users of the redistributed or derivative work.  2.  Any pre-existing intellectual property disclaimers, notices, or terms and conditions. If none exist, a short notice of the following form (hypertext is preferred, text is permitted) should be used within the body of any redistributed or derivative code: "Copyright 2001 World Wide Web Consortium, (Massachusetts Institute of Technology, Institut National de Recherche en Informatique et en Automatique, Keio University). All Rights Reserved. http://www.w3.org/Consortium/Legal/" 3.  Notice of any changes or modifications to the W3C files, including the date changes were made. (We recommend you provide URIs to the location from which the code is derived.)    Original W3C files; http://www.w3.org/2001/06/soap-envelopeChanges made:      - reverted namespace to http://schemas.xmlsoap.org/soap/envelope/     - reverted mustUnderstand to only allow 0 and 1 as lexical values	 - made encodingStyle a global attribute 20020825	 - removed default value from mustUnderstand attribute declaration THIS SOFTWARE AND DOCUMENTATION IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENTATION. The name and trademarks of copyright holders may NOT be used in advertising or publicity pertaining to the software without specific, written prior permission. Title to copyright in this software and any associated documentation will at all times remain with copyright holders.-->
+<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--Envelope, header and body-->
+  <xs:element name="Envelope" type="tns:Envelope"/>
+  <xs:complexType name="Envelope">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:Header"/>
+      <xs:element minOccurs="1" ref="tns:Body"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Header" type="tns:Header"/>
+  <xs:complexType name="Header">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Body" type="tns:Body"/>
+  <xs:complexType name="Body">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##any" processContents="lax">
+      <xs:annotation>
+        <xs:documentation>Prose in the spec does not specify that attributes are allowed on the Body element</xs:documentation>
+      </xs:annotation>
+    </xs:anyAttribute>
+  </xs:complexType>
+  <!--Global Attributes.  The following attributes are intended to be usable via qualified attribute names on any complex type referencing them.-->
+  <xs:attribute name="mustUnderstand">
+    <xs:simpleType>
+      <xs:restriction base="xs:boolean">
+        <xs:pattern value="0|1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="actor" type="xs:anyURI"/>
+  <xs:simpleType name="encodingStyle">
+    <xs:annotation>
+      <xs:documentation>'encodingStyle' indicates any canonicalization conventions followed in the contents of the containing element.  For example, the value 'http://schemas.xmlsoap.org/soap/encoding/' indicates the pattern described in SOAP specification</xs:documentation>
+    </xs:annotation>
+    <xs:list itemType="xs:anyURI"/>
+  </xs:simpleType>
+  <xs:attribute name="encodingStyle" type="tns:encodingStyle"/>
+  <xs:attributeGroup name="encodingStyle">
+    <xs:attribute ref="tns:encodingStyle"/>
+  </xs:attributeGroup>
+  <xs:element name="Fault" type="tns:Fault"/>
+  <xs:complexType final="extension" name="Fault">
+    <xs:annotation>
+      <xs:documentation>Fault reporting structure</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="faultcode" type="xs:QName"/>
+      <xs:element name="faultstring" type="xs:string"/>
+      <xs:element minOccurs="0" name="faultactor" type="xs:anyURI"/>
+      <xs:element minOccurs="0" name="detail" type="tns:detail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detail">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##any" processContents="lax"/>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/soap-encoding.xsd</con:url><con:content><![CDATA[<!--Schema for the SOAP/1.1 encoding Portions  2001 DevelopMentor. 2001 W3C (Massachusetts Institute of Technology, Institut National de Recherche en Informatique et en Automatique, Keio University). All Rights Reserved. This document is governed by the W3C Software License [1] as described in the FAQ [2].[1] http://www.w3.org/Consortium/Legal/copyright-software-19980720[2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD By obtaining, using and/or copying this work, you (the licensee) agree that you have read, understood, and will comply with the following terms and conditions: Permission to use, copy, modify, and distribute this software and its documentation, with or without modification,  for any purpose and without fee or royalty is hereby granted, provided that you include the following on ALL copies of the software and documentation or portions thereof, including modifications, that you make: 1.  The full text of this NOTICE in a location viewable to users of the redistributed or derivative work.  2.  Any pre-existing intellectual property disclaimers, notices, or terms and conditions. If none exist, a short notice of the following form (hypertext is preferred, text is permitted) should be used within the body of any redistributed or derivative code: "Copyright  2001 World Wide Web Consortium, (Massachusetts Institute of Technology, Institut National de Recherche en Informatique et en Automatique, Keio University). All Rights Reserved. http://www.w3.org/Consortium/Legal/" 3.  Notice of any changes or modifications to the W3C files, including the date changes were made. (We recommend you provide URIs to the location from which the code is derived.)    Original W3C files; http://www.w3.org/2001/06/soap-encodingChanges made:      - reverted namespace to http://schemas.xmlsoap.org/soap/encoding/     - reverted root to only allow 0 and 1 as lexical values	 - removed default value from root attribute declaration THIS SOFTWARE AND DOCUMENTATION IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENTATION. The name and trademarks of copyright holders may NOT be used in advertising or publicity pertaining to the software without specific, written prior permission. Title to copyright in this software and any associated documentation will at all times remain with copyright holders.-->
+<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:attribute name="root">
+    <xs:annotation>
+      <xs:documentation>'root' can be used to distinguish serialization roots from other       elements that are present in a serialization but are not roots of       a serialized value graph</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:boolean">
+        <xs:pattern value="0|1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attributeGroup name="commonAttributes">
+    <xs:annotation>
+      <xs:documentation>Attributes common to all elements that function as accessors or         represent independent (multi-ref) values.  The href attribute is        intended to be used in a manner like CONREF.  That is, the element        content should be empty iff the href attribute appears</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" type="xs:ID"/>
+    <xs:attribute name="href" type="xs:anyURI"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:attributeGroup>
+  <!--Global Attributes.  The following attributes are intended to be usable via qualified attribute names on any complex type referencing them.-->
+  <!--Array attributes. Needed to give the type and dimensions of an array's contents, and the offset for partially-transmitted arrays.-->
+  <xs:simpleType name="arrayCoordinate">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attribute name="arrayType" type="xs:string"/>
+  <xs:attribute name="offset" type="tns:arrayCoordinate"/>
+  <xs:attributeGroup name="arrayAttributes">
+    <xs:attribute ref="tns:arrayType"/>
+    <xs:attribute ref="tns:offset"/>
+  </xs:attributeGroup>
+  <xs:attribute name="position" type="tns:arrayCoordinate"/>
+  <xs:attributeGroup name="arrayMemberAttributes">
+    <xs:attribute ref="tns:position"/>
+  </xs:attributeGroup>
+  <xs:group name="Array">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="Array" type="tns:Array"/>
+  <xs:complexType name="Array">
+    <xs:annotation>
+      <xs:documentation>'Array' is a complex type for accessors identified by position</xs:documentation>
+    </xs:annotation>
+    <xs:group minOccurs="0" ref="tns:Array"/>
+    <xs:attributeGroup ref="tns:arrayAttributes"/>
+    <xs:attributeGroup ref="tns:commonAttributes"/>
+  </xs:complexType>
+  <!--'Struct' is a complex type for accessors identified by name.        Constraint: No element may be have the same name as any other,       nor may any element have a maxOccurs > 1.-->
+  <xs:element name="Struct" type="tns:Struct"/>
+  <xs:group name="Struct">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="Struct">
+    <xs:group minOccurs="0" ref="tns:Struct"/>
+    <xs:attributeGroup ref="tns:commonAttributes"/>
+  </xs:complexType>
+  <!--'Base64' can be used to serialize binary data using base64 encoding       as defined in RFC2045 but without the MIME line length limitation.-->
+  <xs:simpleType name="base64">
+    <xs:restriction base="xs:base64Binary"/>
+  </xs:simpleType>
+  <!--Element declarations corresponding to each of the simple types in the       XML Schemas Specification.-->
+  <xs:element name="duration" type="tns:duration"/>
+  <xs:complexType name="duration">
+    <xs:simpleContent>
+      <xs:extension base="xs:duration">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="dateTime" type="tns:dateTime"/>
+  <xs:complexType name="dateTime">
+    <xs:simpleContent>
+      <xs:extension base="xs:dateTime">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="NOTATION" type="tns:NOTATION"/>
+  <xs:complexType name="NOTATION">
+    <xs:simpleContent>
+      <xs:extension base="xs:QName">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="time" type="tns:time"/>
+  <xs:complexType name="time">
+    <xs:simpleContent>
+      <xs:extension base="xs:time">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="date" type="tns:date"/>
+  <xs:complexType name="date">
+    <xs:simpleContent>
+      <xs:extension base="xs:date">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="gYearMonth" type="tns:gYearMonth"/>
+  <xs:complexType name="gYearMonth">
+    <xs:simpleContent>
+      <xs:extension base="xs:gYearMonth">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="gYear" type="tns:gYear"/>
+  <xs:complexType name="gYear">
+    <xs:simpleContent>
+      <xs:extension base="xs:gYear">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="gMonthDay" type="tns:gMonthDay"/>
+  <xs:complexType name="gMonthDay">
+    <xs:simpleContent>
+      <xs:extension base="xs:gMonthDay">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="gDay" type="tns:gDay"/>
+  <xs:complexType name="gDay">
+    <xs:simpleContent>
+      <xs:extension base="xs:gDay">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="gMonth" type="tns:gMonth"/>
+  <xs:complexType name="gMonth">
+    <xs:simpleContent>
+      <xs:extension base="xs:gMonth">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="boolean" type="tns:boolean"/>
+  <xs:complexType name="boolean">
+    <xs:simpleContent>
+      <xs:extension base="xs:boolean">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="base64Binary" type="tns:base64Binary"/>
+  <xs:complexType name="base64Binary">
+    <xs:simpleContent>
+      <xs:extension base="xs:base64Binary">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="hexBinary" type="tns:hexBinary"/>
+  <xs:complexType name="hexBinary">
+    <xs:simpleContent>
+      <xs:extension base="xs:hexBinary">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="float" type="tns:float"/>
+  <xs:complexType name="float">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="double" type="tns:double"/>
+  <xs:complexType name="double">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="anyURI" type="tns:anyURI"/>
+  <xs:complexType name="anyURI">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="QName" type="tns:QName"/>
+  <xs:complexType name="QName">
+    <xs:simpleContent>
+      <xs:extension base="xs:QName">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="string" type="tns:string"/>
+  <xs:complexType name="string">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="normalizedString" type="tns:normalizedString"/>
+  <xs:complexType name="normalizedString">
+    <xs:simpleContent>
+      <xs:extension base="xs:normalizedString">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="token" type="tns:token"/>
+  <xs:complexType name="token">
+    <xs:simpleContent>
+      <xs:extension base="xs:token">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="language" type="tns:language"/>
+  <xs:complexType name="language">
+    <xs:simpleContent>
+      <xs:extension base="xs:language">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="Name" type="tns:Name"/>
+  <xs:complexType name="Name">
+    <xs:simpleContent>
+      <xs:extension base="xs:Name">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="NMTOKEN" type="tns:NMTOKEN"/>
+  <xs:complexType name="NMTOKEN">
+    <xs:simpleContent>
+      <xs:extension base="xs:NMTOKEN">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="NCName" type="tns:NCName"/>
+  <xs:complexType name="NCName">
+    <xs:simpleContent>
+      <xs:extension base="xs:NCName">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="NMTOKENS" type="tns:NMTOKENS"/>
+  <xs:complexType name="NMTOKENS">
+    <xs:simpleContent>
+      <xs:extension base="xs:NMTOKENS">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ID" type="tns:ID"/>
+  <xs:complexType name="ID">
+    <xs:simpleContent>
+      <xs:extension base="xs:ID">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="IDREF" type="tns:IDREF"/>
+  <xs:complexType name="IDREF">
+    <xs:simpleContent>
+      <xs:extension base="xs:IDREF">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ENTITY" type="tns:ENTITY"/>
+  <xs:complexType name="ENTITY">
+    <xs:simpleContent>
+      <xs:extension base="xs:ENTITY">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="IDREFS" type="tns:IDREFS"/>
+  <xs:complexType name="IDREFS">
+    <xs:simpleContent>
+      <xs:extension base="xs:IDREFS">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ENTITIES" type="tns:ENTITIES"/>
+  <xs:complexType name="ENTITIES">
+    <xs:simpleContent>
+      <xs:extension base="xs:ENTITIES">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="decimal" type="tns:decimal"/>
+  <xs:complexType name="decimal">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="integer" type="tns:integer"/>
+  <xs:complexType name="integer">
+    <xs:simpleContent>
+      <xs:extension base="xs:integer">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="nonPositiveInteger" type="tns:nonPositiveInteger"/>
+  <xs:complexType name="nonPositiveInteger">
+    <xs:simpleContent>
+      <xs:extension base="xs:nonPositiveInteger">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="negativeInteger" type="tns:negativeInteger"/>
+  <xs:complexType name="negativeInteger">
+    <xs:simpleContent>
+      <xs:extension base="xs:negativeInteger">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="long" type="tns:long"/>
+  <xs:complexType name="long">
+    <xs:simpleContent>
+      <xs:extension base="xs:long">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="int" type="tns:int"/>
+  <xs:complexType name="int">
+    <xs:simpleContent>
+      <xs:extension base="xs:int">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="short" type="tns:short"/>
+  <xs:complexType name="short">
+    <xs:simpleContent>
+      <xs:extension base="xs:short">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="byte" type="tns:byte"/>
+  <xs:complexType name="byte">
+    <xs:simpleContent>
+      <xs:extension base="xs:byte">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="nonNegativeInteger" type="tns:nonNegativeInteger"/>
+  <xs:complexType name="nonNegativeInteger">
+    <xs:simpleContent>
+      <xs:extension base="xs:nonNegativeInteger">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="unsignedLong" type="tns:unsignedLong"/>
+  <xs:complexType name="unsignedLong">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedLong">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="unsignedInt" type="tns:unsignedInt"/>
+  <xs:complexType name="unsignedInt">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedInt">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="unsignedShort" type="tns:unsignedShort"/>
+  <xs:complexType name="unsignedShort">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedShort">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="unsignedByte" type="tns:unsignedByte"/>
+  <xs:complexType name="unsignedByte">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedByte">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="positiveInteger" type="tns:positiveInteger"/>
+  <xs:complexType name="positiveInteger">
+    <xs:simpleContent>
+      <xs:extension base="xs:positiveInteger">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="anyType"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>${url}HG{site}/TechnologyFrameworksWeb/RetrievePersonWS</con:endpoint><con:endpoint>http://guivmstweb01.siriusfs.com:82/HGSystemTest/TechnologyFrameworksWeb/RetrievePersonWS</con:endpoint></con:endpoints><con:operation isOneWay="false" action="RetrievePersonWSService/retrievePerson" name="retrievePerson" bindingOperationName="retrievePerson" type="Request-Response" outputName="retrievePersonOutput" inputName="retrievePersonInput" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="79037d34-e474-4d59-a4b3-be96073d163b"><con:settings/><con:call name="Request 1" id="81afaef3-f5c4-4737-9022-a93959dfbd31" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${url}HG{site}/TechnologyFrameworksWeb/RetrievePersonWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:InsureJ" xmlns:v1="http://www.ssp-uk.com/PersonMessages/v1" xmlns:v11="http://www.ssp-uk.com/Person/v1">
+   <soapenv:Header>
+      <urn:InsureJHeader>
+         <urn:correlationId/><urn:role>QSECOFR</urn:role>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+      </urn:InsureJHeader>
+   </soapenv:Header>
+   <soapenv:Body>
+      <v1:retrievePersonRequest>
+         <v11:personKey>
+            <v11:personIdentity>302</v11:personIdentity>
+         </v11:personKey>
+         <v11:effectiveDate>2015-12-18T00:00:00.000+05:00</v11:effectiveDate>
+      </v1:retrievePersonRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="RetrievePersonWSService/retrievePerson"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ManagePersonWSBinding" type="wsdl" bindingName="{urn:ManagePersonWSService}ManagePersonWSBinding" soapVersion="1_1" anonymous="optional" definition="${env}/ManagePersonWS?WSDL" id="a0119f37-2ae7-49fc-8486-cabe78a8a6ef" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="${url}HG{site}/TechnologyFrameworksWeb/ManagePersonWS?WSDL"><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/ManagePersonWS?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="urn:ManagePersonWSService" xmlns:impl="urn:ManagePersonWSService" xmlns:implin="http://www.ssp-uk.com/PersonMessages/v1" xmlns:implout="http://www.ssp-uk.com/PersonMessages/v1" xmlns:insurej="urn:InsureJ" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:ManagePersonWSService">
+      <xsd:import namespace="http://www.ssp-uk.com/Person/v1" schemaLocation="Person.xsd"/>
+      <xsd:import namespace="http://www.ssp-uk.com/common/v1" schemaLocation="commonDataTypes.xsd"/>
+      <xsd:import namespace="http://www.ssp-uk.com/PersonMessages/v1" schemaLocation="PersonMessages.xsd"/>
+      <xsd:import namespace="urn:InsureJ" schemaLocation="insurej.xsd"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="soap-envelope.xsd"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="soap-encoding.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="OutputMessage">
+    <wsdl:part element="implout:managePersonResponse" name="OutputPart"/>
+  </wsdl:message>
+  <wsdl:message name="Message">
+    <wsdl:part element="implin:managePersonRequest" name="InputPart"/>
+    <wsdl:part element="insurej:InsureJHeader" name="InsureJHeaderPart"/>
+  </wsdl:message>
+  <wsdl:message name="FaultMessage">
+    <wsdl:part element="insurej:InsureJFault" name="InsureJFaultPart"/>
+  </wsdl:message>
+  <wsdl:portType name="doManagePersonWSService">
+    <wsdl:operation name="createPerson">
+      <wsdl:input message="impl:Message" name="createPersonInput"/>
+      <wsdl:output message="impl:OutputMessage" name="createPersonOutput"/>
+      <wsdl:fault message="impl:FaultMessage" name="createPersonFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="updatePerson">
+      <wsdl:input message="impl:Message" name="updatePersonInput"/>
+      <wsdl:output message="impl:OutputMessage" name="updatePersonOutput"/>
+      <wsdl:fault message="impl:FaultMessage" name="updatePersonFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ManagePersonWSBinding" type="impl:doManagePersonWSService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createPerson">
+      <soap:operation soapAction="ManagePersonWSService/createPerson" style="document"/>
+      <wsdl:input name="createPersonInput">
+        <soap:header message="impl:Message" part="InsureJHeaderPart" use="literal"/>
+        <soap:body parts="InputPart" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createPersonOutput">
+        <soap:body parts="OutputPart" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="createPersonFault">
+        <soap:fault name="createPersonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePerson">
+      <soap:operation soapAction="ManagePersonWSService/updatePerson" style="document"/>
+      <wsdl:input name="updatePersonInput">
+        <soap:header message="impl:Message" part="InsureJHeaderPart" use="literal"/>
+        <soap:body parts="InputPart" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updatePersonOutput">
+        <soap:body parts="OutputPart" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="updatePersonFault">
+        <soap:fault name="updatePersonFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="doManagePersonWSService">
+    <wsdl:port binding="impl:ManagePersonWSBinding" name="doManagePersonWSService">
+      <soap:address location="${url}HG{site}/TechnologyFrameworksWeb/ManagePersonWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/Person.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.ssp-uk.com/Person/v1" xmlns="http://www.ssp-uk.com/Person/v1" xmlns:att="http://www.ssp-uk.com/Attachment/v1" xmlns:cmn="http://www.ssp-uk.com/common/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.ssp-uk.com/common/v1" schemaLocation="commonDataTypes.xsd"/>
+  <xs:import namespace="http://www.ssp-uk.com/Attachment/v1" schemaLocation="Attachment.xsd"/>
+  <xs:element name="person" type="Person"/>
+  <xs:element name="personURN" type="cmn:numberType"/>
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="personKey"/>
+      <xs:element minOccurs="0" ref="extCustomerRef"/>
+      <xs:element minOccurs="0" ref="effectiveDate"/>
+      <xs:element minOccurs="0" ref="reasonForChange"/>
+      <xs:element minOccurs="0" ref="fullName"/>
+      <xs:element minOccurs="1" ref="forename"/>
+      <xs:element minOccurs="0" ref="middleName1"/>
+      <xs:element minOccurs="0" ref="middleName2"/>
+      <xs:element minOccurs="0" ref="middleName3"/>
+      <xs:element minOccurs="1" ref="surname"/>
+      <xs:element minOccurs="1" ref="format"/>
+      <xs:element minOccurs="0" ref="title"/>
+      <xs:element minOccurs="0" ref="suffixes"/>
+      <xs:element minOccurs="0" ref="gender"/>
+      <xs:element minOccurs="0" ref="dateOfBirth"/>
+      <xs:element minOccurs="0" ref="dateOfDeath"/>
+      <xs:element minOccurs="0" ref="deceased"/>
+      <xs:element minOccurs="0" ref="uniqueReference"/>
+      <xs:element minOccurs="0" ref="maritalStatus"/>
+      <xs:element minOccurs="0" ref="customerValue"/>
+      <xs:element minOccurs="0" ref="idNumber"/>
+      <xs:element minOccurs="0" ref="correspondencePreference"/>
+      <xs:element minOccurs="0" ref="specialCorrespondence"/>
+      <xs:element minOccurs="0" ref="businessUnitURN"/>
+      <xs:element minOccurs="0" ref="addresses"/>
+      <xs:element minOccurs="0" ref="accountDetails"/>
+      <xs:element minOccurs="0" ref="contactDetails"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PersonSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="personKey"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="personKey" type="PersonKey"/>
+  <xs:element name="fullName" type="cmn:string254"/>
+  <xs:element name="forename" type="cmn:string100"/>
+  <xs:element name="middleName1" type="cmn:string100"/>
+  <xs:element name="middleName2" type="cmn:string100"/>
+  <xs:element name="middleName3" type="cmn:string100"/>
+  <xs:element name="surname" type="cmn:string100"/>
+  <xs:element name="format" type="cmn:string100"/>
+  <xs:element name="extCustomerRef" type="cmn:string"/>
+  <xs:element name="idNumber" type="cmn:string"/>
+  <xs:element name="customerValue" type="cmn:string"/>
+  <xs:element name="effectiveDate" type="cmn:dateTimeType"/>
+  <xs:element name="reasonForChange" type="cmn:string">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Contacts.EditContactReason.</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="title" type="cmn:resourceCode">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>PersonName.titles</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="suffixes" type="cmn:string40">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>PersonName.suffixes</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="gender" type="cmn:string2">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Person.gender</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="dateOfBirth" type="cmn:dateType"/>
+  <xs:element name="dateOfDeath" type="cmn:dateType"/>
+  <xs:element name="deceased" type="cmn:booleanType"/>
+  <xs:element name="maritalStatus" type="cmn:resourceCode">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Person.maritalStatus</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="correspondencePreference" type="cmn:resourceCode">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Person.correspondencePreference</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="specialCorrespondence" type="cmn:resourceCode">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Person.specialCorrespondence</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="addresses" type="Addresses"/>
+  <xs:element name="accountDetails" type="AccountDetails"/>
+  <xs:element name="contactDetails" type="ContactDetails"/>
+  <xs:element name="uniqueReference" type="cmn:numberType"/>
+  <xs:element name="businessUnitURN" type="cmn:numberType"/>
+  <xs:complexType name="PersonKey">
+    <xs:sequence>
+      <xs:element minOccurs="1" ref="personIdentity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="personIdentity" type="cmn:objectIdentity"/>
+  <xs:complexType name="ContactDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="preferredStartTime"/>
+      <xs:element minOccurs="0" ref="preferredEndTime"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="emails"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="telephones"/>
+      <xs:element minOccurs="0" ref="optInToMarketing"/>
+      <xs:element minOccurs="0" ref="marketingDateAsked"/>
+      <xs:element minOccurs="0" ref="marketingSMS"/>
+      <xs:element minOccurs="0" ref="marketingTelephone"/>
+      <xs:element minOccurs="0" ref="marketingPost"/>
+      <xs:element minOccurs="0" ref="marketingEmail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="preferredStartTime" type="cmn:string8"/>
+  <xs:element name="preferredEndTime" type="cmn:string8"/>
+  <xs:element name="emails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="1" ref="email"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="email">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="0" ref="emailIdentity"/>
+        <xs:element maxOccurs="1" minOccurs="1" ref="emailType"/>
+        <xs:element maxOccurs="1" minOccurs="1" ref="emailAddress"/>
+      </xs:sequence>
+      <xs:attribute ref="delete"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="emailIdentity" type="cmn:objectIdentity"/>
+  <xs:element name="emailAddress" type="cmn:emailAddressType"/>
+  <xs:element name="emailType" type="cmn:string2">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>EmailAddress.format</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="telephones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="1" ref="telephone"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="telephone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="0" ref="telephoneIdentity"/>
+        <xs:element maxOccurs="1" minOccurs="1" ref="telephoneType"/>
+        <xs:element maxOccurs="1" minOccurs="1" ref="telephoneNumber"/>
+      </xs:sequence>
+      <xs:attribute ref="delete"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="telephoneIdentity" type="cmn:objectIdentity"/>
+  <xs:element name="telephoneNumber" type="cmn:string40"/>
+  <xs:element name="telephoneType" type="cmn:string2">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>PhoneNumber.format</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Addresses">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" ref="address"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Address">
+    <xs:complexContent>
+      <xs:extension base="cmn:AddressType">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" ref="addressType"/>
+          <xs:element maxOccurs="1" minOccurs="1" ref="isMailingAddress"/>
+          <xs:element minOccurs="0" ref="addressIdentity"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="optInToMarketing" type="cmn:string50"/>
+  <xs:element name="marketingDateAsked" type="cmn:dateType"/>
+  <xs:element name="marketingSMS" type="cmn:booleanType"/>
+  <xs:element name="marketingTelephone" type="cmn:booleanType"/>
+  <xs:element name="marketingPost" type="cmn:booleanType"/>
+  <xs:element name="marketingEmail" type="cmn:booleanType"/>
+  <xs:element name="address" type="Address"/>
+  <xs:element name="addressIdentity" type="cmn:objectIdentity"/>
+  <xs:element name="addressType" type="cmn:string2">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>ContactAddress.type</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="isMailingAddress" type="cmn:booleanType"/>
+  <xs:complexType name="AccountDetails">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" ref="bankAccounts"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="cardAccounts"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="bankAccounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="1" ref="bankAccount"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bankAccount" type="BankAccount"/>
+  <xs:complexType name="BaseBankAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="bankAccountIdentity"/>
+      <xs:element minOccurs="1" ref="bankAccountName"/>
+      <xs:element minOccurs="1" ref="bankAccountType"/>
+      <xs:element minOccurs="1" ref="bankAccountReference"/>
+      <xs:element minOccurs="1" ref="bankAccountCountry"/>
+      <xs:element minOccurs="1" ref="bankAccountBSBCode"/>
+      <xs:element minOccurs="1" ref="bankAccountBSBBank"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BankAccount">
+    <xs:complexContent>
+      <xs:extension base="BaseBankAccount">
+        <xs:attribute ref="delete"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="bankAccountIdentity" type="cmn:objectIdentity"/>
+  <xs:element name="bankAccountName" type="cmn:string40"/>
+  <xs:element name="bankAccountType" type="cmn:string40">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>BankAccount.accountType</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bankAccountCountry" type="cmn:string40">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>BankAccount.country</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bankAccountReference" type="cmn:string20"/>
+  <xs:element name="bankAccountBSBCode" type="cmn:string40"/>
+  <xs:element name="bankAccountBSBBank" type="cmn:string40">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>BankAccount.bank</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="cardAccounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="1" ref="cardAccount"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cardAccount" type="CardAccount"/>
+  <xs:complexType name="BaseCardAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="cardAccountIdentity"/>
+      <xs:element minOccurs="1" ref="cardAccountName"/>
+      <xs:element minOccurs="1" ref="cardAccountType"/>
+      <xs:element minOccurs="1" ref="cardAccountCountry"/>
+      <xs:element minOccurs="0" ref="cardAccountStartDate"/>
+      <xs:element minOccurs="0" ref="cardAccountIssueNumber"/>
+      <xs:element minOccurs="1" ref="cardAccountExpiryDate"/>
+      <xs:element minOccurs="1" ref="cardAccountReference"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CardAccount">
+    <xs:complexContent>
+      <xs:extension base="BaseCardAccount">
+        <xs:attribute ref="delete"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="cardAccountIdentity" type="cmn:objectIdentity"/>
+  <xs:element name="cardAccountName" type="cmn:string40"/>
+  <xs:element name="cardAccountType" type="cmn:string40">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>BankAccount.cardType</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="cardAccountCountry" type="cmn:string40"/>
+  <xs:annotation>
+    <xs:documentation>
+      <xs:resourceName>BankAccount.country</xs:resourceName>
+    </xs:documentation>
+  </xs:annotation>
+  <xs:element name="cardAccountStartDate" type="cmn:mmyyType"/>
+  <xs:element name="cardAccountIssueNumber" type="cmn:string3"/>
+  <xs:element name="cardAccountExpiryDate" type="cmn:mmyyType"/>
+  <xs:element name="cardAccountReference" type="cmn:string20"/>
+  <xs:attribute name="delete" type="cmn:booleanType"/>
+  <xs:element name="attachments" type="Attachments"/>
+  <xs:complexType name="Attachments">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="attachment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="attachment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:creationDate"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:objectIdentity"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:attachmentUserId"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:category"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:comment"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:documentType"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="att:documentName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/commonDataTypes.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.ssp-uk.com/common/v1" xmlns="http://www.ssp-uk.com/common/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="objectIdentity">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:simpleType name="string0">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string1">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string2">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string3">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string4">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string8">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string10">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string11">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="11"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string20">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string25">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="25"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string34">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="34"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string35">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="35"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string40">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="40"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string50">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string60">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="60"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string70">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="70"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string100">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string128">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="128"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string250">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="250"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string254">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="254"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string400">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="400"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="string">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="yearType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(([0-1][0-9][0-9][0-9])|(20[0-3][0-9]))"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="yymmType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((0[1-9])|([1-9][0-9]))((0[1-9])|(1[0-2]))"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="mmyyType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((0[1-9])|(1[0-2]))((0[1-9])|([1-9][0-9]))"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dateType">
+    <xs:restriction base="xs:date"/>
+  </xs:simpleType>
+  <xs:simpleType name="dateTimeType">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="numberType">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:simpleType name="booleanType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="true"/>
+      <xs:enumeration value="false"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="monetaryAmountType">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="12"/>
+      <xs:fractionDigits value="2"/>
+      <xs:pattern value="\d{1,8}\.\d{0,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="real5_2">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="7"/>
+      <xs:fractionDigits value="2"/>
+      <xs:pattern value="\d{1,5}\.\d{1,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="real3_6">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="9"/>
+      <xs:fractionDigits value="6"/>
+      <xs:pattern value="\d{1,3}\.\d{1,6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="sumInsuredType">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="12"/>
+      <xs:fractionDigits value="0"/>
+      <xs:pattern value="\d{1,10}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="emailAddressType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="254"/>
+      <xs:pattern value="([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" ref="premise"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="addressLine1"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="addressLine2"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="addressLine3"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="addressLine4"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="suburb"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="town"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="county"/>
+      <xs:element minOccurs="1" ref="postcode"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="country"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="format"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="premise" type="string60"/>
+  <xs:element name="addressLine1" type="string60"/>
+  <xs:element name="addressLine2" type="string60"/>
+  <xs:element name="addressLine3" type="string60"/>
+  <xs:element name="addressLine4" type="string60"/>
+  <xs:element name="suburb" type="string60"/>
+  <xs:element name="town" type="string60"/>
+  <xs:element name="county" type="string60"/>
+  <xs:element name="postcode" type="string8"/>
+  <xs:element name="country" type="string60"/>
+  <xs:element name="format" type="string8"/>
+  <xs:complexType name="Fault">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" ref="processingFault"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="processingFault">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" ref="message"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="messageId"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="messageLanguage"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="propertyName"/>
+        <xs:element maxOccurs="1" minOccurs="0" ref="detail"/>
+        <xs:element minOccurs="0" ref="messageProperties"/>
+        <xs:element minOccurs="0" ref="errorId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="message" type="string254"/>
+  <xs:element name="messageId" type="string254"/>
+  <xs:element name="messageLanguage" type="string254"/>
+  <xs:element name="propertyName" type="string254"/>
+  <xs:element name="detail" type="string254"/>
+  <xs:element name="errorId" type="string254"/>
+  <xs:simpleType name="long">
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:simpleType name="decimal">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:element name="messageProperties">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="messageProperty"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--Resources can be defined to have a code that is string or integer-->
+  <xs:simpleType name="resourceCode">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="resourceCodeInteger">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:element name="messageProperty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" ref="messagePropertyPlaceholder"/>
+        <xs:element maxOccurs="1" minOccurs="1" ref="messagePropertyValue"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="messagePropertyPlaceholder" type="xs:int"/>
+  <xs:element name="messagePropertyValue" type="string254"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/Attachment.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.ssp-uk.com/Attachment/v1" xmlns="http://www.ssp-uk.com/Attachment/v1" xmlns:cmn="http://www.ssp-uk.com/common/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.ssp-uk.com/common/v1" schemaLocation="commonDataTypes.xsd"/>
+  <xs:element name="attachment" type="Attachment"/>
+  <xs:complexType name="Attachment">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" ref="objectIdentity"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="attachmentUserId"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="comment"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="category"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="documentType"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="url"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="documentName"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="type"/>
+      <xs:element maxOccurs="1" minOccurs="1" ref="uniqueReference"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="data"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="creationDate"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="documentXml"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="objectIdentity" nillable="false" type="cmn:objectIdentity"/>
+  <xs:element name="attachmentUserId" type="cmn:string50"/>
+  <xs:element name="category" type="cmn:string254">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Attachment.category</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="comment" type="cmn:string254"/>
+  <xs:element name="documentType" type="cmn:string2">
+    <xs:annotation>
+      <xs:documentation>
+        <xs:resourceName>Attachments.FileDocumentType</xs:resourceName>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="url" type="cmn:string254"/>
+  <xs:element name="documentName" type="cmn:string254"/>
+  <xs:element name="type" nillable="true" type="cmn:string50"/>
+  <xs:element name="uniqueReference" type="cmn:string20"/>
+  <xs:element name="data" type="cmn:string"/>
+  <xs:element name="documentXml" type="cmn:string"/>
+  <xs:element name="creationDate" type="cmn:dateTimeType"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/PersonMessages.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://www.ssp-uk.com/PersonMessages/v1" xmlns="http://www.ssp-uk.com/PersonMessages/v1" xmlns:cmn="http://www.ssp-uk.com/common/v1" xmlns:per="http://www.ssp-uk.com/Person/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.ssp-uk.com/Person/v1" schemaLocation="Person.xsd"/>
+  <xs:import namespace="http://www.ssp-uk.com/common/v1" schemaLocation="commonDataTypes.xsd"/>
+  <!--Retrieve Person-->
+  <xs:element name="retrievePersonRequest" type="RetrievePersonRequest"/>
+  <xs:element name="retrievePersonResponse" type="RetrievePersonResponse"/>
+  <xs:complexType name="RetrievePersonRequest">
+    <xs:sequence>
+      <xs:element ref="per:personKey"/>
+      <xs:element ref="per:effectiveDate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetrievePersonResponse">
+    <xs:sequence>
+      <xs:element ref="per:person"/>
+      <xs:element ref="per:attachments"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--End Retrieve Person-->
+  <!--Save Person-->
+  <xs:element name="managePersonRequest" type="ManagePersonRequest"/>
+  <xs:element name="managePersonResponse" type="ManagePersonResponse"/>
+  <xs:complexType name="ManagePersonRequest">
+    <xs:sequence>
+      <xs:element ref="per:person"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ManagePersonResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" ref="per:personKey"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="per:addresses"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="per:accountDetails"/>
+      <xs:element maxOccurs="1" minOccurs="0" ref="per:contactDetails"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--End Save Person-->
+  <!--Search Person-->
+  <xs:element name="searchPersonRequest" type="SearchPersonRequest"/>
+  <xs:element name="searchPersonResponse" type="SearchPersonResponse"/>
+  <xs:complexType name="SearchPersonRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="per:personURN"/>
+      <xs:element minOccurs="0" name="name" type="cmn:string254"/>
+      <xs:element minOccurs="0" ref="per:dateOfBirth"/>
+      <xs:element minOccurs="0" name="streetName" type="cmn:string60"/>
+      <xs:element minOccurs="0" name="city" type="cmn:string60"/>
+      <xs:element minOccurs="0" name="postCode" type="cmn:string60"/>
+      <xs:element minOccurs="0" ref="per:extCustomerRef"/>
+      <xs:element minOccurs="0" name="roleCategory" type="cmn:string60">
+        <xs:annotation>
+          <xs:documentation>
+            <xs:resourceName>ContactRole.roleCategory</xs:resourceName>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="roleType" type="cmn:string40">
+        <xs:annotation>
+          <xs:documentation>
+            <xs:resourceName>ContactRole.roleType</xs:resourceName>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="startIndex" type="cmn:numberType"/>
+      <xs:element minOccurs="1" name="noOfInstances" type="cmn:numberType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchPersonResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="contacts" type="Contacts"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="hasMoreResults" type="cmn:booleanType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Contacts">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="person" type="PersonInformation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType abstract="false" name="PersonInformation">
+    <xs:sequence>
+      <xs:element ref="per:personKey"/>
+      <xs:element ref="per:personURN"/>
+      <xs:element minOccurs="0" name="title" type="cmn:string8"/>
+      <xs:element minOccurs="0" name="forename" type="cmn:string254"/>
+      <xs:element minOccurs="0" name="surname" type="cmn:string254"/>
+      <xs:element minOccurs="0" name="name" type="cmn:string254"/>
+      <xs:element minOccurs="0" name="dateOfBirth" type="cmn:dateType"/>
+      <xs:element minOccurs="0" name="idNumber" type="cmn:string20"/>
+      <xs:element minOccurs="0" name="address" type="cmn:string254"/>
+      <xs:element minOccurs="0" name="postCode" type="cmn:string8"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="person" type="PersonInformation"/>
+  <!--End Search Person-->
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/insurej.xsd</con:url><con:content><![CDATA[<schema elementFormDefault="qualified" targetNamespace="urn:InsureJ" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:insurej="urn:InsureJ">
+  <annotation>
+    <documentation>Standard Header Types</documentation>
+  </annotation>
+  <element name="InsureJHeader" type="insurej:InsureJHeaderType"/>
+  <complexType name="InsureJHeaderType">
+    <sequence>
+      <element name="correlationId" type="string"/>
+      <element minOccurs="0" name="externalUserId" type="decimal"/>
+      <element minOccurs="0" name="role" type="string"/>
+      <element minOccurs="0" name="sessionId" type="string"/>
+      <element minOccurs="0" name="language" type="string"/>
+    </sequence>
+  </complexType>
+  <element name="InsureJFault" type="insurej:InsureJFault"/>
+  <complexType name="InsureJFault">
+    <choice maxOccurs="unbounded">
+      <element name="InsureJProcessingFault" type="insurej:InsureJProcessingFault"/>
+    </choice>
+  </complexType>
+  <element name="InsureJProcessingFault" type="insurej:InsureJProcessingFault"/>
+  <complexType name="InsureJProcessingFault">
+    <sequence>
+      <element name="message" type="string"/>
+      <sequence maxOccurs="1" minOccurs="0">
+        <element name="messageId" type="string"/>
+        <element name="messageLanguage" type="string"/>
+        <element minOccurs="0" name="propertyName" type="string"/>
+        <element minOccurs="0" name="detail" type="string"/>
+        <element minOccurs="0" name="messageProperties" type="insurej:MessageProperties"/>
+        <element minOccurs="0" name="errorId" type="string"/>
+      </sequence>
+    </sequence>
+  </complexType>
+  <complexType name="MessageProperties">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="1" name="messageProperty" type="insurej:MessageProperty"/>
+    </sequence>
+  </complexType>
+  <complexType name="MessageProperty">
+    <sequence>
+      <element name="placeholder" type="int"/>
+      <element name="value" type="string"/>
+    </sequence>
+  </complexType>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/soap-envelope.xsd</con:url><con:content><![CDATA[<!--Schema for the SOAP/1.1 envelope Portions  2001 DevelopMentor. 2001 W3C (Massachusetts Institute of Technology, Institut National de Recherche en Informatique et en Automatique, Keio University). All Rights Reserved. This document is governed by the W3C Software License [1] as described in the FAQ [2].[1] http://www.w3.org/Consortium/Legal/copyright-software-19980720[2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD By obtaining, using and/or copying this work, you (the licensee) agree that you have read, understood, and will comply with the following terms and conditions: Permission to use, copy, modify, and distribute this software and its documentation, with or without modification,  for any purpose and without fee or royalty is hereby granted, provided that you include the following on ALL copies of the software and documentation or portions thereof, including modifications, that you make: 1.  The full text of this NOTICE in a location viewable to users of the redistributed or derivative work.  2.  Any pre-existing intellectual property disclaimers, notices, or terms and conditions. If none exist, a short notice of the following form (hypertext is preferred, text is permitted) should be used within the body of any redistributed or derivative code: "Copyright 2001 World Wide Web Consortium, (Massachusetts Institute of Technology, Institut National de Recherche en Informatique et en Automatique, Keio University). All Rights Reserved. http://www.w3.org/Consortium/Legal/" 3.  Notice of any changes or modifications to the W3C files, including the date changes were made. (We recommend you provide URIs to the location from which the code is derived.)    Original W3C files; http://www.w3.org/2001/06/soap-envelopeChanges made:      - reverted namespace to http://schemas.xmlsoap.org/soap/envelope/     - reverted mustUnderstand to only allow 0 and 1 as lexical values	 - made encodingStyle a global attribute 20020825	 - removed default value from mustUnderstand attribute declaration THIS SOFTWARE AND DOCUMENTATION IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENTATION. The name and trademarks of copyright holders may NOT be used in advertising or publicity pertaining to the software without specific, written prior permission. Title to copyright in this software and any associated documentation will at all times remain with copyright holders.-->
+<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--Envelope, header and body-->
+  <xs:element name="Envelope" type="tns:Envelope"/>
+  <xs:complexType name="Envelope">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:Header"/>
+      <xs:element minOccurs="1" ref="tns:Body"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Header" type="tns:Header"/>
+  <xs:complexType name="Header">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Body" type="tns:Body"/>
+  <xs:complexType name="Body">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##any" processContents="lax">
+      <xs:annotation>
+        <xs:documentation>Prose in the spec does not specify that attributes are allowed on the Body element</xs:documentation>
+      </xs:annotation>
+    </xs:anyAttribute>
+  </xs:complexType>
+  <!--Global Attributes.  The following attributes are intended to be usable via qualified attribute names on any complex type referencing them.-->
+  <xs:attribute name="mustUnderstand">
+    <xs:simpleType>
+      <xs:restriction base="xs:boolean">
+        <xs:pattern value="0|1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="actor" type="xs:anyURI"/>
+  <xs:simpleType name="encodingStyle">
+    <xs:annotation>
+      <xs:documentation>'encodingStyle' indicates any canonicalization conventions followed in the contents of the containing element.  For example, the value 'http://schemas.xmlsoap.org/soap/encoding/' indicates the pattern described in SOAP specification</xs:documentation>
+    </xs:annotation>
+    <xs:list itemType="xs:anyURI"/>
+  </xs:simpleType>
+  <xs:attribute name="encodingStyle" type="tns:encodingStyle"/>
+  <xs:attributeGroup name="encodingStyle">
+    <xs:attribute ref="tns:encodingStyle"/>
+  </xs:attributeGroup>
+  <xs:element name="Fault" type="tns:Fault"/>
+  <xs:complexType final="extension" name="Fault">
+    <xs:annotation>
+      <xs:documentation>Fault reporting structure</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="faultcode" type="xs:QName"/>
+      <xs:element name="faultstring" type="xs:string"/>
+      <xs:element minOccurs="0" name="faultactor" type="xs:anyURI"/>
+      <xs:element minOccurs="0" name="detail" type="tns:detail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detail">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##any" processContents="lax"/>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>${url}HG{site}/TechnologyFrameworksWeb/soap-encoding.xsd</con:url><con:content><![CDATA[<!--Schema for the SOAP/1.1 encoding Portions  2001 DevelopMentor. 2001 W3C (Massachusetts Institute of Technology, Institut National de Recherche en Informatique et en Automatique, Keio University). All Rights Reserved. This document is governed by the W3C Software License [1] as described in the FAQ [2].[1] http://www.w3.org/Consortium/Legal/copyright-software-19980720[2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD By obtaining, using and/or copying this work, you (the licensee) agree that you have read, understood, and will comply with the following terms and conditions: Permission to use, copy, modify, and distribute this software and its documentation, with or without modification,  for any purpose and without fee or royalty is hereby granted, provided that you include the following on ALL copies of the software and documentation or portions thereof, including modifications, that you make: 1.  The full text of this NOTICE in a location viewable to users of the redistributed or derivative work.  2.  Any pre-existing intellectual property disclaimers, notices, or terms and conditions. If none exist, a short notice of the following form (hypertext is preferred, text is permitted) should be used within the body of any redistributed or derivative code: "Copyright  2001 World Wide Web Consortium, (Massachusetts Institute of Technology, Institut National de Recherche en Informatique et en Automatique, Keio University). All Rights Reserved. http://www.w3.org/Consortium/Legal/" 3.  Notice of any changes or modifications to the W3C files, including the date changes were made. (We recommend you provide URIs to the location from which the code is derived.)    Original W3C files; http://www.w3.org/2001/06/soap-encodingChanges made:      - reverted namespace to http://schemas.xmlsoap.org/soap/encoding/     - reverted root to only allow 0 and 1 as lexical values	 - removed default value from root attribute declaration THIS SOFTWARE AND DOCUMENTATION IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENTATION. The name and trademarks of copyright holders may NOT be used in advertising or publicity pertaining to the software without specific, written prior permission. Title to copyright in this software and any associated documentation will at all times remain with copyright holders.-->
+<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:attribute name="root">
+    <xs:annotation>
+      <xs:documentation>'root' can be used to distinguish serialization roots from other       elements that are present in a serialization but are not roots of       a serialized value graph</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:boolean">
+        <xs:pattern value="0|1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attributeGroup name="commonAttributes">
+    <xs:annotation>
+      <xs:documentation>Attributes common to all elements that function as accessors or         represent independent (multi-ref) values.  The href attribute is        intended to be used in a manner like CONREF.  That is, the element        content should be empty iff the href attribute appears</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" type="xs:ID"/>
+    <xs:attribute name="href" type="xs:anyURI"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:attributeGroup>
+  <!--Global Attributes.  The following attributes are intended to be usable via qualified attribute names on any complex type referencing them.-->
+  <!--Array attributes. Needed to give the type and dimensions of an array's contents, and the offset for partially-transmitted arrays.-->
+  <xs:simpleType name="arrayCoordinate">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attribute name="arrayType" type="xs:string"/>
+  <xs:attribute name="offset" type="tns:arrayCoordinate"/>
+  <xs:attributeGroup name="arrayAttributes">
+    <xs:attribute ref="tns:arrayType"/>
+    <xs:attribute ref="tns:offset"/>
+  </xs:attributeGroup>
+  <xs:attribute name="position" type="tns:arrayCoordinate"/>
+  <xs:attributeGroup name="arrayMemberAttributes">
+    <xs:attribute ref="tns:position"/>
+  </xs:attributeGroup>
+  <xs:group name="Array">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="Array" type="tns:Array"/>
+  <xs:complexType name="Array">
+    <xs:annotation>
+      <xs:documentation>'Array' is a complex type for accessors identified by position</xs:documentation>
+    </xs:annotation>
+    <xs:group minOccurs="0" ref="tns:Array"/>
+    <xs:attributeGroup ref="tns:arrayAttributes"/>
+    <xs:attributeGroup ref="tns:commonAttributes"/>
+  </xs:complexType>
+  <!--'Struct' is a complex type for accessors identified by name.        Constraint: No element may be have the same name as any other,       nor may any element have a maxOccurs > 1.-->
+  <xs:element name="Struct" type="tns:Struct"/>
+  <xs:group name="Struct">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="Struct">
+    <xs:group minOccurs="0" ref="tns:Struct"/>
+    <xs:attributeGroup ref="tns:commonAttributes"/>
+  </xs:complexType>
+  <!--'Base64' can be used to serialize binary data using base64 encoding       as defined in RFC2045 but without the MIME line length limitation.-->
+  <xs:simpleType name="base64">
+    <xs:restriction base="xs:base64Binary"/>
+  </xs:simpleType>
+  <!--Element declarations corresponding to each of the simple types in the       XML Schemas Specification.-->
+  <xs:element name="duration" type="tns:duration"/>
+  <xs:complexType name="duration">
+    <xs:simpleContent>
+      <xs:extension base="xs:duration">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="dateTime" type="tns:dateTime"/>
+  <xs:complexType name="dateTime">
+    <xs:simpleContent>
+      <xs:extension base="xs:dateTime">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="NOTATION" type="tns:NOTATION"/>
+  <xs:complexType name="NOTATION">
+    <xs:simpleContent>
+      <xs:extension base="xs:QName">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="time" type="tns:time"/>
+  <xs:complexType name="time">
+    <xs:simpleContent>
+      <xs:extension base="xs:time">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="date" type="tns:date"/>
+  <xs:complexType name="date">
+    <xs:simpleContent>
+      <xs:extension base="xs:date">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="gYearMonth" type="tns:gYearMonth"/>
+  <xs:complexType name="gYearMonth">
+    <xs:simpleContent>
+      <xs:extension base="xs:gYearMonth">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="gYear" type="tns:gYear"/>
+  <xs:complexType name="gYear">
+    <xs:simpleContent>
+      <xs:extension base="xs:gYear">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="gMonthDay" type="tns:gMonthDay"/>
+  <xs:complexType name="gMonthDay">
+    <xs:simpleContent>
+      <xs:extension base="xs:gMonthDay">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="gDay" type="tns:gDay"/>
+  <xs:complexType name="gDay">
+    <xs:simpleContent>
+      <xs:extension base="xs:gDay">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="gMonth" type="tns:gMonth"/>
+  <xs:complexType name="gMonth">
+    <xs:simpleContent>
+      <xs:extension base="xs:gMonth">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="boolean" type="tns:boolean"/>
+  <xs:complexType name="boolean">
+    <xs:simpleContent>
+      <xs:extension base="xs:boolean">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="base64Binary" type="tns:base64Binary"/>
+  <xs:complexType name="base64Binary">
+    <xs:simpleContent>
+      <xs:extension base="xs:base64Binary">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="hexBinary" type="tns:hexBinary"/>
+  <xs:complexType name="hexBinary">
+    <xs:simpleContent>
+      <xs:extension base="xs:hexBinary">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="float" type="tns:float"/>
+  <xs:complexType name="float">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="double" type="tns:double"/>
+  <xs:complexType name="double">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="anyURI" type="tns:anyURI"/>
+  <xs:complexType name="anyURI">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="QName" type="tns:QName"/>
+  <xs:complexType name="QName">
+    <xs:simpleContent>
+      <xs:extension base="xs:QName">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="string" type="tns:string"/>
+  <xs:complexType name="string">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="normalizedString" type="tns:normalizedString"/>
+  <xs:complexType name="normalizedString">
+    <xs:simpleContent>
+      <xs:extension base="xs:normalizedString">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="token" type="tns:token"/>
+  <xs:complexType name="token">
+    <xs:simpleContent>
+      <xs:extension base="xs:token">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="language" type="tns:language"/>
+  <xs:complexType name="language">
+    <xs:simpleContent>
+      <xs:extension base="xs:language">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="Name" type="tns:Name"/>
+  <xs:complexType name="Name">
+    <xs:simpleContent>
+      <xs:extension base="xs:Name">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="NMTOKEN" type="tns:NMTOKEN"/>
+  <xs:complexType name="NMTOKEN">
+    <xs:simpleContent>
+      <xs:extension base="xs:NMTOKEN">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="NCName" type="tns:NCName"/>
+  <xs:complexType name="NCName">
+    <xs:simpleContent>
+      <xs:extension base="xs:NCName">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="NMTOKENS" type="tns:NMTOKENS"/>
+  <xs:complexType name="NMTOKENS">
+    <xs:simpleContent>
+      <xs:extension base="xs:NMTOKENS">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ID" type="tns:ID"/>
+  <xs:complexType name="ID">
+    <xs:simpleContent>
+      <xs:extension base="xs:ID">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="IDREF" type="tns:IDREF"/>
+  <xs:complexType name="IDREF">
+    <xs:simpleContent>
+      <xs:extension base="xs:IDREF">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ENTITY" type="tns:ENTITY"/>
+  <xs:complexType name="ENTITY">
+    <xs:simpleContent>
+      <xs:extension base="xs:ENTITY">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="IDREFS" type="tns:IDREFS"/>
+  <xs:complexType name="IDREFS">
+    <xs:simpleContent>
+      <xs:extension base="xs:IDREFS">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ENTITIES" type="tns:ENTITIES"/>
+  <xs:complexType name="ENTITIES">
+    <xs:simpleContent>
+      <xs:extension base="xs:ENTITIES">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="decimal" type="tns:decimal"/>
+  <xs:complexType name="decimal">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="integer" type="tns:integer"/>
+  <xs:complexType name="integer">
+    <xs:simpleContent>
+      <xs:extension base="xs:integer">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="nonPositiveInteger" type="tns:nonPositiveInteger"/>
+  <xs:complexType name="nonPositiveInteger">
+    <xs:simpleContent>
+      <xs:extension base="xs:nonPositiveInteger">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="negativeInteger" type="tns:negativeInteger"/>
+  <xs:complexType name="negativeInteger">
+    <xs:simpleContent>
+      <xs:extension base="xs:negativeInteger">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="long" type="tns:long"/>
+  <xs:complexType name="long">
+    <xs:simpleContent>
+      <xs:extension base="xs:long">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="int" type="tns:int"/>
+  <xs:complexType name="int">
+    <xs:simpleContent>
+      <xs:extension base="xs:int">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="short" type="tns:short"/>
+  <xs:complexType name="short">
+    <xs:simpleContent>
+      <xs:extension base="xs:short">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="byte" type="tns:byte"/>
+  <xs:complexType name="byte">
+    <xs:simpleContent>
+      <xs:extension base="xs:byte">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="nonNegativeInteger" type="tns:nonNegativeInteger"/>
+  <xs:complexType name="nonNegativeInteger">
+    <xs:simpleContent>
+      <xs:extension base="xs:nonNegativeInteger">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="unsignedLong" type="tns:unsignedLong"/>
+  <xs:complexType name="unsignedLong">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedLong">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="unsignedInt" type="tns:unsignedInt"/>
+  <xs:complexType name="unsignedInt">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedInt">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="unsignedShort" type="tns:unsignedShort"/>
+  <xs:complexType name="unsignedShort">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedShort">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="unsignedByte" type="tns:unsignedByte"/>
+  <xs:complexType name="unsignedByte">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedByte">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="positiveInteger" type="tns:positiveInteger"/>
+  <xs:complexType name="positiveInteger">
+    <xs:simpleContent>
+      <xs:extension base="xs:positiveInteger">
+        <xs:attributeGroup ref="tns:commonAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="anyType"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>${url}HG{site}/TechnologyFrameworksWeb/ManagePersonWS</con:endpoint><con:endpoint>http://guivmstweb01.siriusfs.com:82/HGSystemTest/TechnologyFrameworksWeb/ManagePersonWS</con:endpoint></con:endpoints><con:operation isOneWay="false" action="ManagePersonWSService/createPerson" name="createPerson" bindingOperationName="createPerson" type="Request-Response" outputName="createPersonOutput" inputName="createPersonInput" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="ff49c1c4-918c-4271-aab5-8d4b9c28e61c"><con:settings/><con:call name="Request 1" id="1cedcb40-d2d6-4a85-80f3-a15fbb3e9750" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>${url}HG{site}/TechnologyFrameworksWeb/ManagePersonWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:InsureJ" xmlns:v1="http://www.ssp-uk.com/PersonMessages/v1" xmlns:v11="http://www.ssp-uk.com/Person/v1" xmlns:v12="http://www.ssp-uk.com/common/v1">
+   <soapenv:Header>
+      <urn:InsureJHeader>
+         <urn:correlationId>?</urn:correlationId>
+         <!--Optional:-->
+         <urn:externalUserId>?</urn:externalUserId>
+         <!--Optional:-->
+         <urn:role>?</urn:role>
+         <!--Optional:-->
+         <urn:sessionId>?</urn:sessionId>
+      </urn:InsureJHeader>
+   </soapenv:Header>
+   <soapenv:Body>
+      <v1:managePersonRequest>
+         <v11:person>
+            <!--Optional:-->
+            <v11:personKey>
+               <v11:personIdentity>?</v11:personIdentity>
+            </v11:personKey>
+            <!--Optional:-->
+            <v11:extCustomerRef>?</v11:extCustomerRef>
+            <!--Optional:-->
+            <v11:effectiveDate>?</v11:effectiveDate>
+            <!--Optional:-->
+            <v11:reasonForChange>?</v11:reasonForChange>
+            <!--Optional:-->
+            <v11:fullName>?</v11:fullName>
+            <v11:forename>?</v11:forename>
+            <v11:surname>?</v11:surname>
+            <v11:format>?</v11:format>
+            <!--Optional:-->
+            <v11:title>?</v11:title>
+            <!--Optional:-->
+            <v11:suffixes>?</v11:suffixes>
+            <!--Optional:-->
+            <v11:gender>?</v11:gender>
+            <!--Optional:-->
+            <v11:dateOfBirth>?</v11:dateOfBirth>
+            <!--Optional:-->
+            <v11:dateOfDeath>?</v11:dateOfDeath>
+            <!--Optional:-->
+            <v11:deceased>?</v11:deceased>
+            <!--Optional:-->
+            <v11:uniqueReference>?</v11:uniqueReference>
+            <!--Optional:-->
+            <v11:maritalStatus>?</v11:maritalStatus>
+            <!--Optional:-->
+            <v11:customerValue>?</v11:customerValue>
+            <!--Optional:-->
+            <v11:addresses>
+               <!--1 or more repetitions:-->
+               <v11:address>
+                  <!--Optional:-->
+                  <v12:premise>?</v12:premise>
+                  <v12:addressLine1>?</v12:addressLine1>
+                  <v12:addressLine2>?</v12:addressLine2>
+                  <!--Optional:-->
+                  <v12:addressLine3>?</v12:addressLine3>
+                  <!--Optional:-->
+                  <v12:addressLine4>?</v12:addressLine4>
+                  <!--Optional:-->
+                  <v12:suburb>?</v12:suburb>
+                  <!--Optional:-->
+                  <v12:town>?</v12:town>
+                  <!--Optional:-->
+                  <v12:county>?</v12:county>
+                  <v12:postcode>?</v12:postcode>
+                  <!--Optional:-->
+                  <v12:country>?</v12:country>
+                  <!--Optional:-->
+                  <v12:format>?</v12:format>
+                  <v11:addressType>?</v11:addressType>
+                  <v11:isMailingAddress>?</v11:isMailingAddress>
+                  <!--Optional:-->
+                  <v11:addressIdentity>?</v11:addressIdentity>
+               </v11:address>
+            </v11:addresses>
+            <!--Optional:-->
+            <v11:accountDetails>
+               <!--Optional:-->
+               <v11:bankAccounts>
+                  <!--1 or more repetitions:-->
+                  <v11:bankAccount v11:delete="?">
+                     <!--Optional:-->
+                     <v11:bankAccountIdentity>?</v11:bankAccountIdentity>
+                     <v11:bankAccountName>?</v11:bankAccountName>
+                     <v11:bankAccountType>?</v11:bankAccountType>
+                     <v11:bankAccountReference>?</v11:bankAccountReference>
+                     <v11:bankAccountCountry>?</v11:bankAccountCountry>
+                     <v11:bankAccountBSBCode>?</v11:bankAccountBSBCode>
+                     <v11:bankAccountBSBBank>?</v11:bankAccountBSBBank>
+                  </v11:bankAccount>
+               </v11:bankAccounts>
+               <!--Optional:-->
+               <v11:cardAccounts>
+                  <!--1 or more repetitions:-->
+                  <v11:cardAccount v11:delete="?">
+                     <!--Optional:-->
+                     <v11:cardAccountIdentity>?</v11:cardAccountIdentity>
+                     <v11:cardAccountName>?</v11:cardAccountName>
+                     <v11:cardAccountType>?</v11:cardAccountType>
+                     <v11:cardAccountCountry>?</v11:cardAccountCountry>
+                     <!--Optional:-->
+                     <v11:cardAccountStartDate>?</v11:cardAccountStartDate>
+                     <!--Optional:-->
+                     <v11:cardAccountIssueNumber>?</v11:cardAccountIssueNumber>
+                     <v11:cardAccountExpiryDate>?</v11:cardAccountExpiryDate>
+                     <v11:cardAccountReference>?</v11:cardAccountReference>
+                  </v11:cardAccount>
+               </v11:cardAccounts>
+            </v11:accountDetails>
+            <!--Optional:-->
+            <v11:contactDetails>
+               <!--Optional:-->
+               <v11:preferredStartTime>?</v11:preferredStartTime>
+               <!--Optional:-->
+               <v11:preferredEndTime>?</v11:preferredEndTime>
+               <!--Optional:-->
+               <v11:emails>
+                  <!--1 or more repetitions:-->
+                  <v11:email v11:delete="?">
+                     <!--Optional:-->
+                     <v11:emailIdentity>?</v11:emailIdentity>
+                     <v11:emailType>?</v11:emailType>
+                     <v11:emailAddress>?</v11:emailAddress>
+                  </v11:email>
+               </v11:emails>
+               <!--Optional:-->
+               <v11:telephones>
+                  <!--1 or more repetitions:-->
+                  <v11:telephone v11:delete="?">
+                     <!--Optional:-->
+                     <v11:telephoneIdentity>?</v11:telephoneIdentity>
+                     <v11:telephoneType>?</v11:telephoneType>
+                     <v11:telephoneNumber>?</v11:telephoneNumber>
+                  </v11:telephone>
+               </v11:telephones>
+            </v11:contactDetails>
+         </v11:person>
+      </v1:managePersonRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="ManagePersonWSService/createPerson"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="ManagePersonWSService/updatePerson" name="updatePerson" bindingOperationName="updatePerson" type="Request-Response" outputName="updatePersonOutput" inputName="updatePersonInput" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="3f4d804c-99ce-4bfb-bf35-8ab9cd051272"><con:settings/><con:call name="Request 1" id="8861bc53-fece-48f9-8959-738808883814" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>${url}HG{site}/TechnologyFrameworksWeb/ManagePersonWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:InsureJ" xmlns:v1="http://www.ssp-uk.com/PersonMessages/v1" xmlns:v11="http://www.ssp-uk.com/Person/v1" xmlns:v12="http://www.ssp-uk.com/common/v1">
+   <soapenv:Header>
+      <urn:InsureJHeader>
+         <urn:correlationId>?</urn:correlationId>
+         <!--Optional:-->
+         <urn:externalUserId>?</urn:externalUserId>
+         <!--Optional:-->
+         <urn:role>?</urn:role>
+         <!--Optional:-->
+         <urn:sessionId>?</urn:sessionId>
+      </urn:InsureJHeader>
+   </soapenv:Header>
+   <soapenv:Body>
+      <v1:managePersonRequest>
+         <v11:person>
+            <!--Optional:-->
+            <v11:personKey>
+               <v11:personIdentity>?</v11:personIdentity>
+            </v11:personKey>
+            <!--Optional:-->
+            <v11:extCustomerRef>?</v11:extCustomerRef>
+            <!--Optional:-->
+            <v11:effectiveDate>?</v11:effectiveDate>
+            <!--Optional:-->
+            <v11:reasonForChange>?</v11:reasonForChange>
+            <!--Optional:-->
+            <v11:fullName>?</v11:fullName>
+            <v11:forename>?</v11:forename>
+            <v11:surname>?</v11:surname>
+            <v11:format>?</v11:format>
+            <!--Optional:-->
+            <v11:title>?</v11:title>
+            <!--Optional:-->
+            <v11:suffixes>?</v11:suffixes>
+            <!--Optional:-->
+            <v11:gender>?</v11:gender>
+            <!--Optional:-->
+            <v11:dateOfBirth>?</v11:dateOfBirth>
+            <!--Optional:-->
+            <v11:dateOfDeath>?</v11:dateOfDeath>
+            <!--Optional:-->
+            <v11:deceased>?</v11:deceased>
+            <!--Optional:-->
+            <v11:uniqueReference>?</v11:uniqueReference>
+            <!--Optional:-->
+            <v11:maritalStatus>?</v11:maritalStatus>
+            <!--Optional:-->
+            <v11:customerValue>?</v11:customerValue>
+            <!--Optional:-->
+            <v11:addresses>
+               <!--1 or more repetitions:-->
+               <v11:address>
+                  <!--Optional:-->
+                  <v12:premise>?</v12:premise>
+                  <v12:addressLine1>?</v12:addressLine1>
+                  <v12:addressLine2>?</v12:addressLine2>
+                  <!--Optional:-->
+                  <v12:addressLine3>?</v12:addressLine3>
+                  <!--Optional:-->
+                  <v12:addressLine4>?</v12:addressLine4>
+                  <!--Optional:-->
+                  <v12:suburb>?</v12:suburb>
+                  <!--Optional:-->
+                  <v12:town>?</v12:town>
+                  <!--Optional:-->
+                  <v12:county>?</v12:county>
+                  <v12:postcode>?</v12:postcode>
+                  <!--Optional:-->
+                  <v12:country>?</v12:country>
+                  <!--Optional:-->
+                  <v12:format>?</v12:format>
+                  <v11:addressType>?</v11:addressType>
+                  <v11:isMailingAddress>?</v11:isMailingAddress>
+                  <!--Optional:-->
+                  <v11:addressIdentity>?</v11:addressIdentity>
+               </v11:address>
+            </v11:addresses>
+            <!--Optional:-->
+            <v11:accountDetails>
+               <!--Optional:-->
+               <v11:bankAccounts>
+                  <!--1 or more repetitions:-->
+                  <v11:bankAccount v11:delete="?">
+                     <!--Optional:-->
+                     <v11:bankAccountIdentity>?</v11:bankAccountIdentity>
+                     <v11:bankAccountName>?</v11:bankAccountName>
+                     <v11:bankAccountType>?</v11:bankAccountType>
+                     <v11:bankAccountReference>?</v11:bankAccountReference>
+                     <v11:bankAccountCountry>?</v11:bankAccountCountry>
+                     <v11:bankAccountBSBCode>?</v11:bankAccountBSBCode>
+                     <v11:bankAccountBSBBank>?</v11:bankAccountBSBBank>
+                  </v11:bankAccount>
+               </v11:bankAccounts>
+               <!--Optional:-->
+               <v11:cardAccounts>
+                  <!--1 or more repetitions:-->
+                  <v11:cardAccount v11:delete="?">
+                     <!--Optional:-->
+                     <v11:cardAccountIdentity>?</v11:cardAccountIdentity>
+                     <v11:cardAccountName>?</v11:cardAccountName>
+                     <v11:cardAccountType>?</v11:cardAccountType>
+                     <v11:cardAccountCountry>?</v11:cardAccountCountry>
+                     <!--Optional:-->
+                     <v11:cardAccountStartDate>?</v11:cardAccountStartDate>
+                     <!--Optional:-->
+                     <v11:cardAccountIssueNumber>?</v11:cardAccountIssueNumber>
+                     <v11:cardAccountExpiryDate>?</v11:cardAccountExpiryDate>
+                     <v11:cardAccountReference>?</v11:cardAccountReference>
+                  </v11:cardAccount>
+               </v11:cardAccounts>
+            </v11:accountDetails>
+            <!--Optional:-->
+            <v11:contactDetails>
+               <!--Optional:-->
+               <v11:preferredStartTime>?</v11:preferredStartTime>
+               <!--Optional:-->
+               <v11:preferredEndTime>?</v11:preferredEndTime>
+               <!--Optional:-->
+               <v11:emails>
+                  <!--1 or more repetitions:-->
+                  <v11:email v11:delete="?">
+                     <!--Optional:-->
+                     <v11:emailIdentity>?</v11:emailIdentity>
+                     <v11:emailType>?</v11:emailType>
+                     <v11:emailAddress>?</v11:emailAddress>
+                  </v11:email>
+               </v11:emails>
+               <!--Optional:-->
+               <v11:telephones>
+                  <!--1 or more repetitions:-->
+                  <v11:telephone v11:delete="?">
+                     <!--Optional:-->
+                     <v11:telephoneIdentity>?</v11:telephoneIdentity>
+                     <v11:telephoneType>?</v11:telephoneType>
+                     <v11:telephoneNumber>?</v11:telephoneNumber>
+                  </v11:telephone>
+               </v11:telephones>
+            </v11:contactDetails>
+         </v11:person>
+      </v1:managePersonRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="ManagePersonWSService/updatePerson"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="POC" id="3794215a-4994-4c90-a060-0b6e2f773152"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="POC" searchProperties="true" id="8f221860-0184-4435-a7e6-3fd098fdf395" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="properties" name="" id="b8bb1329-e247-45bc-8097-f6a084f7f573"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="DriverScript(smoke_Test)" id="94642d93-67cf-4f30-9b53-103eca22ce18"><con:settings/><con:config><script><![CDATA[import com.eviware.soapui.support.XmlHolder
+com.eviware.soapui.support.XmlHolder inputHolder
+com.eviware.soapui.support.XmlHolder outputHolder
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+
+LinkedHashMap outputResponse, inputResponse,prop,service_properties,node_properties
+def testcaseid
+def node, currentCalTime, endCalTime
+String startTime, endTime, totalCount, passCount, failCount, skippedCount,tstartTime, serviceResponseTime
+testCase_Exec_Time_Array = new String[500]
+Calendar tcStartingTime, tcEndingTime
+
+//Constants
+
+//library.Constants.Constant.intermediaryIdentity="103";
+library.Constants.Constant.intermediaryIdentity=com.eviware.soapui.SoapUI.globalProperties.getPropertyValue("intermediaryIdentity")
+library.Constants.Constant.productCode=com.eviware.soapui.SoapUI.globalProperties.getPropertyValue("productCode")
+library.Constants.Constant.schemeCode=com.eviware.soapui.SoapUI.globalProperties.getPropertyValue("schemeCode")
+library.Constants.Constant.EnvironmentURL = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue("env")
+library.Constants.Constant.Role = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue("UserRole")
+library.Constants.Constant.CardAccountType = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue("Card_AccountType")
+
+
+
+
+// Get the system time
+currentTime = library.GenericLibrary.Common.getCurrentTime()
+currentCalTime = library.GenericLibrary.Common.setStartTime()
+tstartTime = library.GenericLibrary.Common.getCurrentTimeInFormat()
+startTime = 'hStartTime&' + tstartTime
+log.info("Start Time : " + startTime)
+
+
+
+
+// Set the constant : project name, location, Test suite name, Test case name
+library.Constants.Constant.PROJECTNAME = testRunner.testCase.testSuite.project.name
+library.Constants.Constant.PROJECTLOCATION = context.expand('${projectDir}') + File.separator + testRunner.testCase.testSuite.project.name + File.separator
+//library.Constants.Constant.PROJECTLOCATION = context.expand('${projectDir}') + "\\" + testRunner.testCase.testSuite.project.name + "\\"
+library.Constants.Constant.TESTSUITENAME = testRunner.testCase.testSuite.name
+library.Constants.Constant.TESTCASENAME = testRunner.testCase.name
+library.Constants.Constant.TESTDATAPATH = library.Constants.Constant.PROJECTLOCATION + "TestData"
+library.Constants.Constant.Environment=com.eviware.soapui.SoapUI.globalProperties.getPropertyValue("Env_Name")
+// Intialize Logging
+testRunner.testCase.testSuite.setPropertyValue('logFilePath' ,context.expand('${projectDir}') + File.separator + testRunner.testCase.testSuite.project.name + File.separator + library.Constants.Constant.TESTSUITENAME+ File.separator + 'Result_Log'+ File.separator + currentTime + File.separator)
+//testRunner.testCase.testSuite.setPropertyValue('logFilePath' ,context.expand('${projectDir}') + "\\" + testRunner.testCase.testSuite.project.name + "\\"+ library.Constants.Constant.TESTSUITENAME+"\\"+ 'Result_Log'+ "\\" + currentTime + "\\")
+
+def logFilePath1 = context.expand( '${#TestSuite#logFilePath}' )
+library.Constants.Constant.logFilePath=logFilePath1
+
+def objLog = new library.LogResult(logFilePath1)
+objLog.logInfo "**********************************************************************************************************"
+objLog.logInfo "          S S P    W E B S E R V I C E S   E X E C U T I O N   L O G"
+objLog.logInfo "**********************************************************************************************************"
+
+library.Constants.Constant.TESTDATABOOK='TestcaseSelection'
+library.Constants.Constant.RESPONSEDATABOOK='ResponseVerification'
+
+log.info 'Test SuiteName : ' + library.Constants.Constant.TESTSUITENAME
+objLog.logInfo 'Test Suite Name : ' + library.Constants.Constant.TESTSUITENAME
+String logPath = context.expand( '${#TestSuite#logFilePath}' )
+log.info 'Logpath is : ' + logPath
+def objReaddata = new library.ReadData(library.Constants.Constant.RESPONSEDATABOOK)
+
+def objVerifyParam = new library.VerificationMethods()
+def objInputmethod=new library.InputMethods()
+
+//objLog.createResFile_Overall(context.expand( '${#TestSuite#logFilePath}' ), "SSP Automation Report")
+objLog.createResFile_Overall(context.expand( '${#TestSuite#logFilePath}' ), "SSP Automation Overall Report - " + testRunner.testCase.name)
+
+//String strAPIFileName1 = objLog.createResFile("SSP_Automation_BindingReport")
+String strAPIFileName1 = objLog.createResFile("SSP_WS Automation_BindingReport - " + testRunner.testCase.name )
+testRunner.testCase.name
+String strAPIFileName1Fail = objLog.createFailResFile("Failure_Report - " +testRunner.testCase.name)
+objLog.logHeader(testRunner.testCase.name)
+
+long responseTimeInMilliseconds = 0
+long executedAPICount = 0
+List list1 = objReaddata.getTCSelectionP2()
+List listtmp
+listtmp = list1
+log.info list1
+
+skippedCount = 'hSkippedCount&' + objReaddata.getTCSkippedCountP2()
+log.info "skippedCount =>  " + objReaddata.getTCSkippedCountP2()
+totalCount = 'hTestCaseCount&' + list1.size()
+log.info "totalCount => "+ list1.size()
+log.info "starttime:::" + tstartTime.toString()
+
+objLog.logInfo ""
+objLog.logInfo 'Total Test Cases Count: ' + (list1.size() + objReaddata.getTCSkippedCountP2().toInteger()).toString()
+objLog.logInfo 'Test Cases Chosen for Execution: ' + list1.size().toString()
+objLog.logInfo 'Test Cases Skipped for Execution: ' + objReaddata.getTCSkippedCountP2().toString()
+objLog.logInfo "Suite Execution Start Time: " + tstartTime.toString()
+objLog.logInfo "**********************************************************************************************************"
+objLog.logInfo ""
+objLog.clearOutputResponseAsXML()
+
+log.info "calling createDateTemplateFormatExcel method"+objReaddata.CreateResponseDataSheet()
+int holdIndex = 0
+String tmpString = ""
+String holdCases = ""
+boolean firstRound = true
+String[] holdArray
+
+def tcMapIndex = [:]
+for (int tci=0; tci<list1.size(); tci++)
+                tcMapIndex.put (list1.get(tci), tci)
+
+
+                holdCases = ""
+                tmpString = ""
+                holdIndex = 0
+                for(int i=0 ; i<list1.size() ; i++)
+                {
+                                tcStartingTime = Calendar.getInstance()
+                                objLog.clearServiceHashAsXml()
+                                log.info 'Test Case Id ' + list1.get(i)
+                                log.info "i = " + i.toString()
+                                log.info("Testcase name "+testRunner.testCase.name.toString())
+                                
+                                prop=objReaddata.getTestDataMap(testRunner.testCase.name.toString(),list1.get(i).toString())
+                                testcaseid = prop.get('TestCaseID')
+                                targetStep = testRunner.testCase.getTestStepByName("Properties");
+                                library.Constants.Constant.TESTCASEID=prop.get('TestCaseID')
+                                String[] services = prop.get('Service_Order').split(",");
+                                log.info "SERVICE : "+services
+                                log.info ("total apis "+services.size())
+                                objLog.logInfo "====================================================================================================="
+                                objLog.logScriptStart(prop.get('TestCaseID'))
+                                objLog.logInfo "API Execution Order: " + prop.get('Service_Order').toString()
+                                objLog.logInfo ("Total APIs Involved: "+services.size())
+                                objLog.logInfo "====================================================================================================="
+                                boolean apiOrderHold = false
+                                int service_order_index = -1
+                                for (service in services)
+                                {
+                                                service_order_index = service_order_index + 1
+                                                library.Constants.Constant.SERVICENAME = service;
+                                                log.info "Running Service : " + service
+                                                objLog.logInfo "-----------------------------------------------------------------------------------------------------"
+                                                objLog.logInfo "Executing API: " + service
+                                                objLog.logInfo "-----------------------------------------------------------------------------------------------------"
+                                                service_properties=objReaddata.getTestDataMap(service,list1.get(i).toString())
+                                                log.info "services : " + list1.get(i)
+                                                log.info "service_properties : " + service_properties
+                                                log.info "Keys : " + service_properties.keySet()
+                                                String actual_service=service
+                                                
+                                                serviceRequest = testRunner.testCase.getTestStepByName(service).getTestRequest()
+                                                def parsedRawxml = groovyUtils.getXmlHolder(serviceRequest.getRequestContent())
+                                                log.info "Parsed xml is" + parsedRawxml.getXml()
+                                                
+                                                service_properties.each
+                                                {  k1, v1 ->
+                                                              if(!k1.contains("//"))
+                                                		{
+                                                                k1 = "//*:"+k1
+                                                		}
+//                                                		if(k1.contains(surname))
+//                                                		{
+//                                                			v1=v1+
+//                                                			}
+                                                                if(k1!='TestCaseID'&& v1.isEmpty() == false )
+                                                                {
+                                                                                parsedRawxml.setNodeValue (k1,v1)
+                                                                }
+
+                                                }
+
+                                                serviceRequest.setRequestContent(parsedRawxml.getXml())
+                                                objLog.logInfoWithNoFormat ""
+                                                objLog.logInfo "::::::::: R E Q U E S T ::::::::::"
+                                                library.Constants.Constant.TestCaseAPI_Req_Res = ""
+                                                objLog.logInfoWithNoFormat parsedRawxml.getXml().toString()
+                                                library.Constants.Constant.TestCaseAPI_Req_Res = parsedRawxml.getXml().toString() + "|| REPLACE WITH RESP HEADER ||"
+                                                objLog.logTCDesc(testcaseid , prop.get('TestCaseDesc'))
+                                                objLog.logFailTCDesc(testcaseid ,prop.get('TestCaseDesc'))
+                                                boolean isResponse = true
+
+                                                while(isResponse) {
+
+                                                                //Thread.sleep(5000);
+                                                                targetStep1 = testRunner.runTestStepByName(service)
+                                                                objLog.logTestRequestResult(service, targetStep1)
+
+                                                                //Logging the Request/Response onto a file as String
+                                                                request = context.expand('${'+service+'#Request}')
+                                                                objLog.logRequest(service, request)
+                                                                response = context.expand('${'+service+'#Response}')
+                                                                objLog.logResponse(service, response)
+
+                                                                if(response == null) {
+                                                                                isResponse = true
+                                                                                log.info "Got NULL response for " +service
+                                                                }
+                                                                else
+                                                                {
+                                                                                log.info "Got response for " +service
+                                                                                isResponse = false
+                                                                }
+
+                                                                try {
+                                                                                tempoutputHolder = new XmlHolder( response )
+                                                                }
+                                                                catch (Exception e){
+
+                                                                                log.info "Got null response for the api - " + service + ". Sending the request once again..."
+                                                                                log.info "Network Problem"
+                                                                                isResponse=true
+                                                                                //return
+                                                                }
+                                                                
+                                                                
+                                
+}
+
+
+                                                //Converting input & output XML in string format to XML format
+                                                inputHolder = new XmlHolder( request )
+                                                outputHolder = new XmlHolder( response )
+                                           
+
+									def Personalholder=groovyUtils.getXmlHolder(service.toString()+"#Response")
+
+		//writing Response data to excel
+		objReaddata.UpdateCreateResponseDataSheet(list1.get(i).toString(),service.toString(),Personalholder)
+		
+		def Request_holder=groovyUtils.getXmlHolder(service.toString()+"#Request")
+
+		//surname counter	
+		if(service.toString().contains("createPerson"))
+		{
+			log.info	objReaddata.writeValueToExcel(library.Constants.Constant.TESTCASEID,service.toString(),"surname")
+		}
+
+
+									//Storing policyIdentity to a constant variable for futher use	
+									
+									if(Personalholder.getNodeValue("//*:personIdentity[1]")!=null&&Personalholder.getNodeValue("//*:personIdentity[1]")!="")
+									{
+										log.info "Person Identity is == " + Personalholder.getNodeValue("//*:personIdentity[1]")
+										library.Constants.Constant.personIdentity=Personalholder.getNodeValue("//*:personIdentity[1]")
+								     }
+									
+									if(Personalholder.getNodeValue("//*:policyIdentity")!=null&&Personalholder.getNodeValue("//*:policyIdentity")!="")
+									{
+										log.info "policy Identity is == " + Personalholder.getNodeValue("//*:policyIdentity")
+										library.Constants.Constant.policyId=Personalholder.getNodeValue("//*:policyIdentity")
+								     }
+								     
+									if(Personalholder.getNodeValue("//*:policyPositionId")!=null&&Personalholder.getNodeValue("//*:policyPositionId")!="")
+									{
+										log.info "policy PositionId is == " + Personalholder.getNodeValue("//*:policyPositionId")
+										library.Constants.Constant.policyPositionId=Personalholder.getNodeValue("//*:policyPositionId")
+								     }
+
+									if(Personalholder.getNodeValue("//*:quoteId")!=null&&Personalholder.getNodeValue("//*:quoteId")!="")
+									{
+										log.info "quoteId is == " + Personalholder.getNodeValue("//*:quoteId")
+										library.Constants.Constant.quoteId=Personalholder.getNodeValue("//*:quoteId")
+								     }
+
+									if(Personalholder.getNodeValue("//*:quoteVariationId")!=null&&Personalholder.getNodeValue("//*:quoteVariationId")!="")
+									{
+										log.info "quoteVariationId is == " + Personalholder.getNodeValue("//*:quoteVariationId")
+										library.Constants.Constant.quoteVariationId=Personalholder.getNodeValue("//*:quoteVariationId")
+								     }
+
+									if(Personalholder.getNodeValue("//*:internalPolicyReference")!=null&&Personalholder.getNodeValue("//*:internalPolicyReference")!="")
+									{
+										log.info "internalPolicyReference is == " + Personalholder.getNodeValue("//*:internalPolicyReference")
+										library.Constants.Constant.internalPolicyReference=Personalholder.getNodeValue("//*:internalPolicyReference")
+								     }	
+								  	if(Personalholder.getNodeValue("//*:person[1]/*:uniqueReference[1]")!=null&&Personalholder.getNodeValue("//*:person[1]/*:uniqueReference[1]")!="")	
+										{
+											log.info "Contact URN is == " + Personalholder.getNodeValue("//*:person[1]/*:uniqueReference[1]")
+											library.Constants.Constant.PersonURN=Personalholder.getNodeValue("//*:person[1]/*:uniqueReference[1]")
+										}
+
+                                                //OpenWorkBasket API
+                                                if (service.toString().contains("openWorkBasket"))
+                                                {
+                                                                def holder = groovyUtils.getXmlHolder( service.toString()+ "#Response") 
+                                                                def numberOfWorkItems = holder["count(//*:workItem)"]
+                                                                log.info "Number of workitems are : " + numberOfWorkItems
+                                                                library.Constants.Constant.InstanceCount = numberOfWorkItems
+                                                }
+
+                              if (service.toString().contains("searchCampaigns"))
+                                                {
+                                                                def holder = groovyUtils.getXmlHolder( service.toString()+ "#Response") 
+                                                                def numberOfWorkItems = holder["count(//*:campaign)"]
+                                                                log.info "Number of workitems are : " + numberOfWorkItems
+                                                                library.Constants.Constant.InstanceCount = numberOfWorkItems
+                                                }
+
+                                                
+                                                
+
+                                                objLog.logInfo "::::::::::: R E S P O N S E :::::::::::::"
+                                                library.Constants.Constant.RESPONSE = outputHolder.getXml().toString()
+                                                objLog.logInfoWithNoFormat library.Constants.Constant.RESPONSE
+                                                library.Constants.Constant.TestCaseAPI_Req_Res = library.Constants.Constant.TestCaseAPI_Req_Res + outputHolder.getXml().toString()
+                                                objLog.logInfo ""
+                                                inputResponse = objLog.addInputResponseAsXML(testRunner.testCase.testSuite.name + "-" +testcaseid +"-" + actual_service, inputHolder)
+
+
+                                                outputResponse = objLog.addOutputResponseAsXML(testRunner.testCase.testSuite.name + "-" +testcaseid +"-" + actual_service, outputHolder)
+                                                serviceResponseTime = testRunner.testCase.testSteps[service].testRequest.response.timeTaken.toString()
+                                                objLog.logPassorFailP2(testcaseid, library.Constants.Constant.RESULT_TYPE.SCRIPT, "Successfully executed service : " + actual_service + " in " + serviceResponseTime + " milliseconds", true);
+
+                                                responseTimeInMilliseconds = responseTimeInMilliseconds + testRunner.testCase.testSteps[service].testRequest.response.timeTaken
+                                                executedAPICount = executedAPICount + 1
+
+                                                objLog.logPassorFailP2(testcaseid, library.Constants.Constant.RESULT_TYPE.SCRIPT,"<----------------- Verifying " +actual_service + " XML response -------------------->" , true)
+
+
+                                                // Saving service input data hash
+                                                objLog.addServiceHashAsXml(actual_service,service_properties)
+                                                //Fetch xpath constants from verification file
+                                                LinkedHashMap responseDataMap = objReaddata.getVerificationDataP2(testcaseid, actual_service)
+                                                log.info 'Res' + responseDataMap
+                                                if (responseDataMap.size() > 0 ) {
+                                                                objLog.logPassorFailP2(testcaseid, library.Constants.Constant.RESULT_TYPE.VERIFICATION, "Successfully fetched " + responseDataMap.size() + " verification paths from ResponseVerification file", true);
+                                                }
+                                                else
+                                                {
+                                                                objLog.logPassorFailP2(testcaseid, library.Constants.Constant.RESULT_TYPE.VERIFICATION, "No verification paths exists in ResponseVerification file", false);
+                                                }
+
+                                                //String flag = objLog.scriptAssertP2(context, responseDataMap, library.Constants.Constant.TESTSUITENAME + "-" +testcaseid +"-"+actual_service)
+										String flag = objLog.scriptAssertP2(responseDataMap, library.Constants.Constant.TESTSUITENAME + "-" +testcaseid +"-"+actual_service)
+                                                log.info 'Flag ' + flag
+
+                                                log.info "Done with api " + service
+                                                log.info "*****************************************************************************"
+
+                                }
+                                tcEndingTime = Calendar.getInstance()
+                                log.info "Index: " + tcMapIndex[list1.get(i)].toString()
+                                log.info testCase_Exec_Time_Array[tcMapIndex[list1.get(i)]]
+                                if (testCase_Exec_Time_Array[tcMapIndex[list1.get(i)]] != null)
+                                                testCase_Exec_Time_Array[tcMapIndex[list1.get(i)]] = (testCase_Exec_Time_Array[tcMapIndex[list1.get(i)]].toInteger() + library.GenericLibrary.Common.getDiffInSeconds(tcStartingTime,tcEndingTime)).toString()
+                                else
+                                                testCase_Exec_Time_Array[tcMapIndex[list1.get(i)]] = library.GenericLibrary.Common.getDiffInSeconds(tcStartingTime,tcEndingTime).toString()
+                                if (apiOrderHold == true)
+                                                continue
+                                log.info testCase_Exec_Time_Array[tcMapIndex[list1.get(i)]]
+                                log.info "-------------------------------------------------------------------------------------"
+                }
+
+
+endCalTime = library.GenericLibrary.Common.setEndTime()
+long totalExecTime = library.GenericLibrary.Common.totalExecutionTime()
+
+int totalExecTimeHrs = 0
+int totalExecTimeMins = 0
+String totalTimeTaken = ""
+totalExecTimeHrs = (totalExecTime / 3600)
+if (totalExecTimeHrs >0) {
+                totalTimeTaken = totalExecTimeHrs.toString() + " Hr(s) "
+                totalExecTime = totalExecTime % 3600
+}
+
+totalExecTimeMins = (totalExecTime / 60)
+if (totalExecTimeMins >0) {
+                totalTimeTaken = totalTimeTaken + totalExecTimeMins.toString() + " Min(s) "
+                totalExecTime = totalExecTime % 60
+}
+totalTimeTaken = totalTimeTaken + totalExecTime.toString() + " Sec(s)"
+
+totalTimeTaken = 'hTotalTime&' + totalTimeTaken
+
+log.info 'Avg Time ' + responseTimeInMilliseconds/executedAPICount
+
+endTime = 'hEndTime&' + library.GenericLibrary.Common.getCurrentTimeInFormat()
+log.info("End Time" + endTime)
+
+int avgResponseTimeInt = ((responseTimeInMilliseconds/executedAPICount)/1000)
+String avgResponseTimeIntString = ""
+avgResponseTimeIntString = avgResponseTimeInt.toString() + " Second(s) " + ((responseTimeInMilliseconds/executedAPICount).toInteger()%1000).toString() + " Milli Second(s)"
+objLog.totalPassorFailTCP2()
+passCount = 'hPassCount&' + objLog.PassCount
+failCount = 'hFailCount&' + objLog.FailCount
+List resultList = [totalTimeTaken, endTime, startTime, totalCount, passCount, failCount, skippedCount, 'hAPIResponseTime&'+avgResponseTimeIntString.toString()]
+List overallResultList = [endTime, startTime, totalCount, passCount, failCount, skippedCount]
+objLog.logHeader_Overall("SSP Automation_Over_All Report - " +testRunner.testCase.name , resultList);
+objLog.logTCDesc_Overall(testRunner.testCase.name + " - TEST REPORT", list1.size().toString(), objLog.PassCount.toString(), objLog.FailCount.toString(), strAPIFileName1, "0", "0")
+objLog.logTCEndP2(objLog.ResultFileOverall, list1,  "SSP_Automation", testCase_Exec_Time_Array, resultList)
+log.info("Information : " +" TC size " + list1.size().toString() + " passCount  " + objLog.PassCount.toString() +" FailCount  " + objLog.FailCount.toString())
+objLog.logTCEnd_Overall()
+
+log.info passCount
+log.info failCount
+log.info totalCount
+log.info 'Scenario Over'
+
+
+testRunner.gotoStepByName("Delay")
+]]></script></con:config></con:testStep><con:testStep type="request" name="createPerson" id="fa0c1e8c-0cc1-4798-aa58-c368cb0b1a64"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ManagePersonWSBinding</con:interface><con:operation>createPerson</con:operation><con:request name="createPerson" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ced45dd4-7c57-458c-b372-8c81e809284a" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#env}/ManagePersonWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:InsureJ" xmlns:v1="http://www.ssp-uk.com/PersonMessages/v1" xmlns:v11="http://www.ssp-uk.com/Person/v1" xmlns:v12="http://www.ssp-uk.com/common/v1">
+   <soapenv:Header>
+      <urn:InsureJHeader>
+         <urn:correlationId/><urn:role>QSECOFR</urn:role>
+         
+      </urn:InsureJHeader>
+   </soapenv:Header>
+   <soapenv:Body>
+      <v1:managePersonRequest>
+         <v11:person>
+            
+            <v11:forename>${#TestCase#forename}</v11:forename>
+            <v11:surname>${#TestCase#surname}</v11:surname>
+            <v11:format>UK</v11:format>
+            <v11:title>01</v11:title>
+            <v11:gender>1</v11:gender>
+            <v11:dateOfBirth>1975-04-01T00:00:00.000+01:00</v11:dateOfBirth>
+            <v11:maritalStatus>1</v11:maritalStatus>
+            <v11:customerValue>150.5</v11:customerValue>
+            <v11:addresses>
+               <v11:address>
+                  <v12:premise>High Street</v12:premise>
+                  <v12:addressLine1>Featherstone Street</v12:addressLine1>
+                  <v12:addressLine2>London</v12:addressLine2>
+                  <v12:postcode>NR1 1SL</v12:postcode>
+                  <v12:format>7</v12:format>
+                  <v11:addressType>2</v11:addressType>
+                  <v11:isMailingAddress>true</v11:isMailingAddress>
+               </v11:address>
+            </v11:addresses>
+            <v11:accountDetails>
+               <v11:cardAccounts>
+                  <v11:cardAccount>
+                     <v11:cardAccountName>test</v11:cardAccountName>
+                     <v11:cardAccountType>1</v11:cardAccountType>
+                     <v11:cardAccountCountry>GB</v11:cardAccountCountry>
+                     <v11:cardAccountExpiryDate/>
+                     <v11:cardAccountReference>Test</v11:cardAccountReference>
+                  </v11:cardAccount>
+               </v11:cardAccounts>
+            </v11:accountDetails>
+            <v11:contactDetails>
+               <v11:preferredStartTime>15:00</v11:preferredStartTime>
+               <v11:preferredEndTime>17:00</v11:preferredEndTime>
+               <v11:emails>
+                  <v11:email>
+                     <v11:emailType>2</v11:emailType>
+                     <v11:emailAddress>jason@jmail.com</v11:emailAddress>
+                  </v11:email>
+               </v11:emails>
+               <v11:telephones>
+                  <v11:telephone>
+                     <v11:telephoneType>1</v11:telephoneType>
+                     <v11:telephoneNumber>2878674563</v11:telephoneNumber>
+                  </v11:telephone>
+               </v11:telephones>
+               <v11:optInToMarketing>No</v11:optInToMarketing>
+               <v11:marketingDateAsked>2016-05-25</v11:marketingDateAsked>
+            </v11:contactDetails>
+         </v11:person>
+      </v1:managePersonRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response" id="999d4780-0e78-4a83-8835-fd9a5e95d2fa"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="ManagePersonWSService/createPerson"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="retrievePerson" id="930360b7-eb0c-4fa6-9c96-ec0fd0c91b52"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetrievePersonWSBinding</con:interface><con:operation>retrievePerson</con:operation><con:request name="retrievePerson" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="3c36fcda-94c7-438b-9aa0-e7db0540b0b6" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#env}/RetrievePersonWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:InsureJ" xmlns:v1="http://www.ssp-uk.com/PersonMessages/v1" xmlns:v11="http://www.ssp-uk.com/Person/v1">
+   <soapenv:Header>
+      <urn:InsureJHeader>
+         <urn:correlationId/><urn:role>QSECOFR</urn:role>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+      </urn:InsureJHeader>
+   </soapenv:Header>
+   <soapenv:Body>
+      <v1:retrievePersonRequest>
+         <v11:personKey>
+            <v11:personIdentity>${#TestCase#personKey}</v11:personIdentity>
+         </v11:personKey><v11:effectiveDate>2017-05-10T00:00:00.000+05:00</v11:effectiveDate>
+      </v1:retrievePersonRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response" id="7f895885-4bb6-41d1-ab6f-4db3736f773d"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="RetrievePersonWSService/retrievePerson"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="delay" name="Delay" id="62a3b0e1-88c7-4324-b802-1c11c04356f9"><con:settings/><con:config><delay>100</delay></con:config></con:testStep><con:properties><con:property><con:name>forename</con:name><con:value/></con:property><con:property><con:name>surname</con:name><con:value/></con:property><con:property><con:name>urn</con:name></con:property><con:property><con:name>personKey</con:name></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>94642d93-67cf-4f30-9b53-103eca22ce18</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>fa0c1e8c-0cc1-4798-aa58-c368cb0b1a64</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties><con:property><con:name>logFilePath</con:name><con:value>E:\SVN Copy\SoapUI Automation\SSP_Maven\src\test\resources\SMOKE\SMOKE\Result_Log\20160525_150452\</con:value></con:property><con:property><con:name>surname</con:name></con:property><con:property><con:name>env</con:name><con:value>http://aldvmstweb02.siriusfs.com/HGSystemTest/TechnologyFrameworksWeb</con:value></con:property></con:properties><con:reportParameters/></con:testSuite><con:savedRecentRuns>1</con:savedRecentRuns><con:requirements/><con:properties><con:property><con:name>forename</con:name><con:value>#TestCase#forename</con:value></con:property><con:property><con:name>surname</con:name>
+	<con:value>#TestCase#surname</con:value></con:property>
+	<con:property>
+		<con:name>env</con:name>
+		<con:value>${url}/TechnologyFrameworksWeb</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting><con:reportTemplates/><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/><con:authRepository/><con:tags/></con:soapui-project>

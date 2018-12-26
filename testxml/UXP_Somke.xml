@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SIAAS_Regression" verbose="3" parallel="methods">
+	<parameter name="deviceHost" value="localhost" />
+	<parameter name="devicePort" value="4444" />
+	<parameter name="browserName" value="chrome_windows"></parameter>
+	
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="52"></parameter>
+	<parameter name="os" value="Windows"></parameter>
+	<parameter name="os_version" value="7"></parameter>
+	<parameter name="env" value="SystemTest"></parameter>
+	<parameter name="webSite"
+		value="http://aldvmstweb02.siriusfs.com/EngagementCentre/servletcontroller"></parameter>
+	<parameter name="website_EC"
+		value="http://aldvmstweb02.siriusfs.com/EngagementCentre/servletcontroller"></parameter>
+	<parameter name="website_UIRefresh"
+		value="http://aldvmweb01.siriusfs.com/CoreFT3/UI/SSP/index.htm"></parameter>
+	<parameter name="soapenv"
+		value="http://aldvmstweb02.siriusfs.com/SIAASSystemTest/TechnologyFrameworksWeb"></parameter>
+
+ 
+     <test name="UXP_EC_Demo" parallel="false" thread-count="1">
+		<classes>
+			<class name="com.ssp.smoke.testscripts.UXP_EC_SMOKE">
+	 <methods>
+					<include name="TC_012" />
+				</methods>
+
+			</class>
+		</classes>
+	</test>	
+</suite>

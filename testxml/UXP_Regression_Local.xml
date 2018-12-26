@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SIAAS_Regression" verbose="3" parallel="tests"
+	thread-count="120">
+	<parameter name="securityTest" value="false" />
+	<parameter name="deviceHost" value="localhost" />
+	<parameter name="devicePort" value="4444" />
+	<parameter name="browserName" value="internet explorer_windows"></parameter>
+
+	<parameter name="browser" value="internet explorer"></parameter>
+	<!-- <parameter name="browser_version" value="11"></parameter> -->
+	<parameter name="os" value="Windows"></parameter>
+	<parameter name="os_version" value="10"></parameter>
+
+	<test name="UXP_EC_SMOKE" parallel="methods" thread-count="1">
+		<parameter name="env" value="SystemTest"></parameter>
+		<parameter name="webSite"
+			value="http://aldvmstweb02.siriusfs.com/SIAASSystemTest/UI/component/base/htm/base_homePage.htm?systemID=SIAASSystemTest"></parameter>
+		<classes>
+			<class name="com.ssp.smoke.testscripts.Select_Demo">
+			</class>
+		</classes>
+	</test>
+
+</suite>

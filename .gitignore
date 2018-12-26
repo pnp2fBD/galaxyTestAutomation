@@ -1,0 +1,11 @@
+test-output/
+target/surefire-reports/
+*.class
+test-reports/
+target/html/
+target/json/
+target/classes/testdata/data/featureAttachementDeleteData/Test.txt
+target/classes/testdata/data/featureAttachementDeleteData/1.PNG
+target/classes/testdata/data/featureAttachementDeleteData/Test1.txt
+target/classes/testdata/data/featureAttachementDeleteData/Test Evidence.docx
+/target/

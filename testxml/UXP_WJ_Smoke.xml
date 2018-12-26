@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SIAAS_Regression" verbose="3" parallel="methods">
+	<parameter name="deviceHost" value="localhost" />
+	<parameter name="devicePort" value="4444" />
+	<parameter name="browserName" value="chrome_windows"></parameter>
+
+	<parameter name="browser" value="chrome"></parameter>
+	<parameter name="browser_version" value="52"></parameter>
+	<parameter name="os" value="Windows"></parameter>
+	<parameter name="os_version" value="7"></parameter>
+	<parameter name="env" value="SystemTest"></parameter>
+	<parameter name="webSite"
+		value="http://aldvmstweb02.siriusfs.com/SIAAS-WebJourney/servletcontroller"></parameter>
+	<test name="WJTest" parallel="false" thread-count="1">
+		<classes>
+			<class name="com.ssp.uxp.WJ_Test.WJTest">
+				<methods>
+					<include name="TC_001" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
